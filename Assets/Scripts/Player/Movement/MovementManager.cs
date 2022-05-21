@@ -29,16 +29,16 @@ public class MovementManager : MonoBehaviour {
 	private Vector3 GetInputDirection() {
 		Vector3 direction = Vector3.zero;
 
-		if (Input.GetKey(KeyCode.S))
+		if (Input.GetKey(Keymap.Left))
 			direction.x--;
 
-		if (Input.GetKey(KeyCode.T))
+		if (Input.GetKey(Keymap.Right))
 			direction.x++;
 
-		if (Input.GetKey(KeyCode.R))
+		if (Input.GetKey(Keymap.Up))
 			direction.z++;
 
-		if (Input.GetKey(KeyCode.H))
+		if (Input.GetKey(Keymap.Down))
 			direction.z--;
 
 		return direction.normalized;

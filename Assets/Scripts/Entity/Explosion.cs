@@ -17,12 +17,14 @@ public class Explosion : Entity
 
     int timeAlive = 1;
 
-    private void Start()
-    {
+	public override void Start()
+	{
+		base.Start();
         startScale = transform.localScale;
         deathTime = Time.time + timeAlive;
         startColor = rend.material.color;
     }
+
     void Update()
     {
         ExplosionEffects();
