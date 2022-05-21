@@ -11,15 +11,18 @@ public class GhostPossessable : MonoBehaviour, IPossessable {
 
 	public void Possess(IPossessable previouslyPossessed) {
 		transform.SetParent(transform.parent ? transform.parent.parent : null);
-		entity.energyBar.ShowBar();
+		if (entity.energyBar) entity.energyBar.ShowBar();
 		visuals.SetActive(true);
 
-		Rigidbody previouslyPossessedRB = previouslyPossessed.GetEntity().GetComponent<Rigidbody>();
+		if (previouslyPossessed?.GetEntity() is Entity e)
+		{
+			Rigidbody previouslyPossessedRB = e.GetComponent<Rigidbody>();
 
-		if (previouslyPossessedRB != null)
-			rb.velocity = previouslyPossessedRB.velocity;
+			if (previouslyPossessedRB != null)
+				rb.velocity = previouslyPossessedRB.velocity;
 
-		transform.position = previouslyPossessed.GetEntity().transform.position;
+			transform.position = e.transform.position;
+		}
 	}
 
 	public void Unpossess(IPossessable newlyPossessed) {

@@ -10,8 +10,9 @@ public class PossessionManager : MonoBehaviour {
 
 	private IPossessable currentPossessed;
 
-	private void Awake() {
-		currentPossessed = startingPossable;
+	private void Start() {
+		//currentPossessed = startingPossable;
+		Possess();
 	}
 
 	private void Update() {
@@ -30,7 +31,7 @@ public class PossessionManager : MonoBehaviour {
 			return;
 
 		newPossessable.Possess(currentPossessed);
-		currentPossessed.Unpossess(newPossessable);
+		if (currentPossessed != null) currentPossessed.Unpossess(newPossessable);
 		currentPossessed = newPossessable;
 
 		Possessed?.Invoke(currentPossessed);

@@ -9,7 +9,7 @@ public class MovementManager : MonoBehaviour {
 
 	private void Awake() {
 		possessionManager.Possessed += SetCurrentPossessedMovable;
-		currentPossessedMovable = protag.GetComponent<IMoveable>();
+		//currentPossessedMovable = protag.GetComponent<IMoveable>();
 	}
 
 	private void FixedUpdate() {

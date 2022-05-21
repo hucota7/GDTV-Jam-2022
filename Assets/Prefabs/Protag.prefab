@@ -162,9 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7271832221522474181}
-  entity: {fileID: 0}
+  entity: {fileID: 7271832221522474190}
   accel: 1
-  energyCost: 0
+  energyCost: 0.01
 --- !u!114 &7271832221522474189
 MonoBehaviour:
   m_ObjectHideFlags: 0
