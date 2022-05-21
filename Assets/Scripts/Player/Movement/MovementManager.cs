@@ -12,10 +12,13 @@ public class MovementManager : MonoBehaviour {
 		currentPossessedMovable = protag.GetComponent<IMoveable>();
 	}
 
-	private void FixedUpdate() { 
-		Vector3 inputDirection = GetInputDirection();
+	private void FixedUpdate() {
+		if (currentPossessedMovable != null)
+		{
+			Vector3 inputDirection = GetInputDirection();
 
-		currentPossessedMovable.Move(inputDirection);
+			currentPossessedMovable.Move(inputDirection);
+		}
 	}
 
 	private void SetCurrentPossessedMovable(IPossessable newPossessable) {

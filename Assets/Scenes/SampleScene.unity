@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -383,6 +384,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6587caa31c99941b4317cc6a02d350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solidColorShader: {fileID: 4800000, guid: 03e7a65c2f3bea046b2ce4eb6e7fed83, type: 3}
+  outlineShader: {fileID: 4800000, guid: 14429a39b0ef519479a0fc25253f8071, type: 3}
 --- !u!4 &1026039232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8440236696254061079, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
@@ -653,7 +668,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2812341022971010108, guid: 5caa69f4861ff2446a45832944c2dce6, type: 3}
       propertyPath: timeUntilExplosion
-      value: 7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4355177660676388818, guid: 5caa69f4861ff2446a45832944c2dce6, type: 3}
       propertyPath: m_RootOrder

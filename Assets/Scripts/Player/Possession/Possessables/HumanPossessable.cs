@@ -12,9 +12,19 @@ public class HumanPossessable : MonoBehaviour, IPossessable {
 
 		if (previouslyPossessedRB != null)
 			rb.velocity = previouslyPossessedRB.velocity;
+
+		foreach(var ren in entity.renderers)
+		{
+			ren.gameObject.layer = LayerMask.NameToLayer("Outline");
+		}
 	}
 
 	public void Unpossess(IPossessable newlyPossessed) {
 		rb.velocity = Vector3.zero;
+
+		foreach (var ren in entity.renderers)
+		{
+			ren.gameObject.layer = 0;
+		}
 	}
 }
