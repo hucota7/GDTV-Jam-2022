@@ -179,6 +179,12 @@ public class AudioManager : MonoBehaviour
 
 	// Volume
 
+	public static void SetVolume(string param, float value)
+	{
+		Instance.masterMixer.SetFloat(param, ToDecibels(value));
+		SetPref(param, value);
+	}
+
 	public static void SetVolumeMaster(float value)
 	{
 		Instance.masterMixer.SetFloat(mainVolumeParam, ToDecibels(value));
