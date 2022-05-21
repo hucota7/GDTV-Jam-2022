@@ -1,13 +1,16 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Closest Else Ghost", menuName = "Scriptable Object/Possession Behaviour/Closest Else Ghost")]
-public class ClosestElseGhostPossessionBehaviour : PossessionBehaviourConcreteImplementation {
+[CreateAssetMenu(fileName = "Toggle Ghost", menuName = "Scriptable Object/Possession Behaviour/Toggle Ghost")]
+public class ToggleGhostPossessionBehaviour : PossessionBehaviourConcreteImplementation {
 	public GhostPossessable ghostPossessable;
 	[Space]
 	[SerializeField] private float possessionRadius;
 	[SerializeField] private LayerMask possessableMask;
 
 	public override IPossessable GetPossessable(PossessionBehaviourContext context) {
+		if (context.currentPossessed != (IPossessable)ghostPossessable)
+			return ghostPossessable;
+
 		Vector3 currentPossessedPosition = context.currentPossessed.GetEntity().transform.position;
 
 		var possessableObjects = Physics.OverlapSphere(currentPossessedPosition, possessionRadius, possessableMask, QueryTriggerInteraction.Collide);
@@ -32,11 +35,6 @@ public class ClosestElseGhostPossessionBehaviour : PossessionBehaviourConcreteIm
 			}
 		}
 
-		if (closestDistance == possessionRadius) {
-			return (context.currentPossessed != (IPossessable)ghostPossessable) ? ghostPossessable : null;
-		}
-		else {
-			return closestPossesable;
-		}
+		return (closestDistance != possessionRadius) ? closestPossesable : null;
 	}
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PossessionManager : MonoBehaviour {
@@ -7,10 +6,7 @@ public class PossessionManager : MonoBehaviour {
 
 	[SerializeField] private HumanPossessable startingPossable;
 	[Space]
-	[SerializeField] private LayerMask possessableMask;
 	[SerializeField] private PossessionBehaviourConcreteImplementation possessionBehaviour;
-	[Space]
-	[SerializeField] private float possessionRadius;
 
 	private IPossessable currentPossessed;
 
@@ -24,20 +20,8 @@ public class PossessionManager : MonoBehaviour {
 	}
 
 	private void Possess() {
-		Vector3 currentPossessedPosition = currentPossessed.GetEntity().transform.position;
-
-		var possessableObjects = Physics.OverlapSphere(currentPossessedPosition, possessionRadius, possessableMask, QueryTriggerInteraction.Collide);
-		List<IPossessable> possessables = new List<IPossessable>(possessableObjects.Length);
-
-		foreach (var possessableObject in possessableObjects) {
-			possessables.Add(possessableObject.GetComponent<IPossessable>());
-		}
-
 		PossessionBehaviourContext context = new PossessionBehaviourContext() {
-			currentPossessed = currentPossessed,
-			possessables = possessables,
-			possessionRadius = possessionRadius,
-			currentPossessedPosition = currentPossessedPosition
+			currentPossessed = currentPossessed
 		};
 
 		IPossessable newPossessable = possessionBehaviour.GetPossessable(context);
@@ -50,9 +34,5 @@ public class PossessionManager : MonoBehaviour {
 		currentPossessed = newPossessable;
 
 		Possessed?.Invoke(currentPossessed);
-	}
-
-	private void OnDrawGizmosSelected() {
-		Gizmos.DrawWireSphere(currentPossessed.GetEntity().transform.position, possessionRadius);
 	}
 }
