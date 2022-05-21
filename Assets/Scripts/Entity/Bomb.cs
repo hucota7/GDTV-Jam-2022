@@ -12,8 +12,9 @@ public class Bomb : Entity
     public Color[] startColors;
     public bool explosionTriggered = false;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         startScale = transform.localScale;
         explodeTime = Time.time + timeUntilExplosion;
     }

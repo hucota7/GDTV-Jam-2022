@@ -10,6 +10,7 @@ public class GhostPossessable : MonoBehaviour, IPossessable {
 	}
 
 	public void Possess(IPossessable previouslyPossessed) {
+		entity.energyBar.ShowBar();
 		meshRenderer.enabled = true;
 
 		Rigidbody previouslyPossessedRB = previouslyPossessed.GetEntity().GetComponent<Rigidbody>();
@@ -21,9 +22,9 @@ public class GhostPossessable : MonoBehaviour, IPossessable {
 	}
 
 	public void Unpossess(IPossessable newlyPossessed) {
+		entity.energyBar.HideBar();
 		meshRenderer.enabled = false;
-		rb.velocity = Vector3.zero;
 
-		transform.position = newlyPossessed.GetEntity().transform.position;
+		rb.velocity = Vector3.zero;
 	}
 }

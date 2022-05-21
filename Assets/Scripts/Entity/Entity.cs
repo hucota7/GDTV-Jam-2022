@@ -8,10 +8,11 @@ public abstract class Entity : MonoBehaviour
 	public Renderer[] renderers;
 	public EnergyBarUI energyBar;
 
-    private void Awake()
+    public virtual void Start()
     {
 		energyBar = Instantiate(InterfaceManager.Instance.energyBarPrefab, InterfaceManager.Instance.worldCanvas.transform);
-		energyBar.Init(this);
+		energyBar.Init(1, 1);
+		energyBar.TempPain(this);
 	}
 
     private void Reset()

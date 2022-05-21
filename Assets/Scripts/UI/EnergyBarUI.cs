@@ -8,9 +8,13 @@ public class EnergyBarUI : StatusBarUI
     public Entity target;
     public Vector3 offset = new Vector3(0, 2, 0);
 
-    public void Init(Entity target)
+    public override void Init(float currentValue, float maxValue)
     {
-        this.target = target;
+        base.Init(1, 1);
+    }
+
+    public void TempPain(Entity tempity) {
+        target = tempity;
     }
 
     private void LateUpdate()
