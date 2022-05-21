@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class InterfaceManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[Header("References")]
+	public Canvas mainCanvas, worldCanvas;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[Header("Prefabs")]
+	public EnergyBarUI energyBarPrefab;
+	public static InterfaceManager Instance { get; private set; }
+
+	private void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
 }

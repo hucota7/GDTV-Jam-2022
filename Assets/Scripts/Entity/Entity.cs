@@ -6,8 +6,15 @@ public abstract class Entity : MonoBehaviour
 {
 	public bool possessable = true;
 	public Renderer[] renderers;
+	public EnergyBarUI energyBar;
 
-	private void Reset()
+    private void Awake()
+    {
+		energyBar = Instantiate(InterfaceManager.Instance.energyBarPrefab, InterfaceManager.Instance.worldCanvas.transform);
+		energyBar.Init(this);
+	}
+
+    private void Reset()
 	{
 		renderers = GetComponentsInChildren<Renderer>();
 	}
