@@ -76,3 +76,4 @@ crashlytics-build.properties
 
 ignore.conf
 .vsconfig
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
