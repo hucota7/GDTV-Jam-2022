@@ -6,7 +6,8 @@ public abstract class Entity : MonoBehaviour
 {
 	public bool possessable = true;
 	public Renderer[] renderers;
-	public EnergyBarUI energyBar;
+	[HideInInspector]public EnergyBarUI energyBar;
+	public Transform uiPoint;
 
     public virtual void Start()
     {
