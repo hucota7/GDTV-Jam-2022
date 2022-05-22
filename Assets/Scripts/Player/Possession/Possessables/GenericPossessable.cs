@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HumanPossessable : MonoBehaviour, IPossessable {
+public class GenericPossessable : MonoBehaviour, IPossessable {
 	[SerializeField] private Entity entity;
 	[SerializeField] private Rigidbody rb;
 

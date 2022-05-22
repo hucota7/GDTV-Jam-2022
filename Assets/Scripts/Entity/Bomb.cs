@@ -11,6 +11,9 @@ public class Bomb : Entity
     private Vector3 startScale;
     public Color[] startColors;
     public bool explosionTriggered = false;
+    [Space]
+    [SerializeField] public PossessionManager possessionManager;
+    [SerializeField] public GenericPossessable genericPossessable;
 
     public override void Start()
     {
@@ -60,6 +63,10 @@ public class Bomb : Entity
         Debug.Log("Explosion!");
         explosionTriggered = true;
         Instantiate(explosionObject, transform.position, Quaternion.identity);
+        
+        if (possessionManager.CurrentPossessed == (IPossessable)genericPossessable)
+            possessionManager.Possess();
+        
         base.Die();
     }
 }

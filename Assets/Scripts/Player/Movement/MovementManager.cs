@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class MovementManager : MonoBehaviour {
 	[SerializeField] private PossessionManager possessionManager;
-	[Space]
-	[SerializeField] private GameObject protag;
 
 	private IMoveable currentPossessedMovable;
 
 	private void Awake() {
+		possessionManager.InitialPossession += SetCurrentPossessedMovable;
 		possessionManager.Possessed += SetCurrentPossessedMovable;
-		//currentPossessedMovable = protag.GetComponent<IMoveable>();
 	}
 
 	private void FixedUpdate() {
