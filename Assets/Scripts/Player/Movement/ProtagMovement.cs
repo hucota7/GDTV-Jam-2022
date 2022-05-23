@@ -15,6 +15,4 @@ public class ProtagMovement : MonoBehaviour, IMoveable {
 		entity.energyBar.currentValue -= direction.magnitude * energyCost;
 		entity.energyBar.UpdateBar();
 	}
-
-	
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : Entity,IPossessable
+public class Door : Entity
 {
     [Header("Door Variables")]
     public Transform doorTransform; //The transform that rotates. Best to use an empty gameobject as a pivot point and parent the door model to it.
@@ -19,20 +19,5 @@ public class Door : Entity,IPossessable
     public void CloseDoor()
     {
         doorTransform.eulerAngles = Vector3.Lerp(doorTransform.eulerAngles, startEuler, openSpeed * Time.deltaTime);
-    }
-
-    public Entity GetEntity()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Possess(IPossessable previouslyPossessed)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Unpossess(IPossessable newlyPossessed)
-    {
-        throw new System.NotImplementedException();
     }
 }

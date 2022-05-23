@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-public class PossessionManager : MonoBehaviour {
+public class PossessionManager : MonoBehaviour
+{
 	public Action<IPossessable> InitialPossession;
 	public Action<IPossessable> Possessed;
 
@@ -17,17 +18,21 @@ public class PossessionManager : MonoBehaviour {
 
 	public IPossessable CurrentPossessed { get; private set; }
 
-	private void Start() {
-		if (closestPossesableAsStartingPossessable) {
+	private void Start()
+	{
+		if (closestPossesableAsStartingPossessable)
+		{
 			int searchRadious = 5;
 			Collider[] possessableObjects;
 
-			do {
+			do
+			{
 				possessableObjects = Physics.OverlapSphere(transform.position, searchRadious, possessableMask, QueryTriggerInteraction.Collide);
 			}
 			while (possessableObjects.Length == 0 && searchRadious < 100);
 
-			if (possessableObjects.Length == 0) {
+			if (possessableObjects.Length == 0)
+			{
 				Debug.LogWarning("Could not find possessable object within 100 units of PossessionManager! Instead setting it to " + startingPossable);
 
 				CurrentPossessed = startingPossable;
@@ -41,17 +46,20 @@ public class PossessionManager : MonoBehaviour {
 
 			IPossessable[] possessables = new IPossessable[possessableObjects.Length];
 
-			for (int i = 0; i < possessableObjects.Length; i++) {
+			for (int i = 0; i < possessableObjects.Length; i++)
+			{
 				possessables[i] = possessableObjects[i].GetComponent<IPossessable>();
 			}
 
 			IPossessable closestPossesable = null;
 			float closestDistance = searchRadious;
 
-			foreach (var possessable in possessables) {
+			foreach (var possessable in possessables)
+			{
 				float distance = Vector3.Distance(transform.position, possessable.GetEntity().transform.position);
 
-				if (distance < closestDistance) {
+				if (distance < closestDistance)
+				{
 					closestPossesable = possessable;
 					closestDistance = distance;
 				}
@@ -68,13 +76,16 @@ public class PossessionManager : MonoBehaviour {
 			CurrentPossessed.Possess(null);
 	}
 
-	private void Update() {
-		if (Input.GetKeyDown(KeyCode.Space))
+	private void Update()
+	{
+		if (Input.GetKeyDown(Keymap.Possess))
 			Possess();
 	}
 
-	public void Possess() {
-		PossessionBehaviourContext context = new PossessionBehaviourContext() {
+	public void Possess()
+	{
+		PossessionBehaviourContext context = new PossessionBehaviourContext()
+		{
 			currentPossessed = CurrentPossessed
 		};
 

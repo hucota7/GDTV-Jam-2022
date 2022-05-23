@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     {
         currentZoom -= Input.GetAxis("Mouse ScrollWheel") * zoomZpeed;
         currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
-        currentYaw -= Input.GetAxis("Horizontal") * yawSpeed * Time.deltaTime;
+        currentYaw += Input.GetAxis("Mouse X") * yawSpeed;
     }
 
     private void LateUpdate()
