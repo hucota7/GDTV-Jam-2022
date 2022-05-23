@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GhostPossessable : MonoBehaviour, IPossessable {
 	[SerializeField] private Entity entity;
-	[SerializeField] private Rigidbody rb;
+	[SerializeField] private GhostMovement movement;
 	[SerializeField] private GameObject visuals;
 
 	public Entity GetEntity() {
@@ -19,7 +19,7 @@ public class GhostPossessable : MonoBehaviour, IPossessable {
 			Rigidbody previouslyPossessedRB = e.GetComponent<Rigidbody>();
 
 			if (previouslyPossessedRB != null)
-				rb.velocity = previouslyPossessedRB.velocity;
+				movement.velocity = previouslyPossessedRB.velocity;
 
 			transform.position = e.transform.position;
 		}
@@ -29,7 +29,7 @@ public class GhostPossessable : MonoBehaviour, IPossessable {
 		entity.energyBar.HideBar();
 		visuals.SetActive(false);
 
-		rb.velocity = Vector3.zero;
+		movement.velocity = Vector3.zero;
 
 		transform.SetParent(((Component)newlyPossessed).transform);
 	}

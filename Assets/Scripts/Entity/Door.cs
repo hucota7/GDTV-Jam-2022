@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : Entity
+public class Door : Entity, IMoveable, IUseable
 {
     [Header("Door Variables")]
     public Transform doorTransform; //The transform that rotates. Best to use an empty gameobject as a pivot point and parent the door model to it.
@@ -11,7 +11,17 @@ public class Door : Entity
     public float openSpeed = 4f; //Speed at which the door opens (and closes).
     public bool requiresKey = false; //Does this door require a key?
 
-    public void OpenDoor()
+	bool isOpen = false;
+
+	private void Update()
+	{
+		if (isOpen)
+			OpenDoor();
+		else
+			CloseDoor();
+	}
+
+	public void OpenDoor()
     {
         doorTransform.eulerAngles = Vector3.Lerp(doorTransform.eulerAngles, startEuler + doorRotation, openSpeed * Time.deltaTime);
     }
@@ -20,4 +30,11 @@ public class Door : Entity
     {
         doorTransform.eulerAngles = Vector3.Lerp(doorTransform.eulerAngles, startEuler, openSpeed * Time.deltaTime);
     }
+
+	public void Move(Vector3 direction) { }
+
+	public void Use()
+	{
+		isOpen = !isOpen;
+	}
 }
