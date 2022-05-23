@@ -35,7 +35,7 @@ public class GhostPossessable : MonoBehaviour, IPossessable
 
 	public void Unpossess(IPossessable newlyPossessed)
 	{
-		entity.EnergyBar.HideBar();
+		if (entity.EnergyBar) entity.EnergyBar.HideBar();
 		visuals.SetActive(false);
 		movement.CC.detectCollisions = false;
 
