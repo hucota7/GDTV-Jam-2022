@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7271832221522474187}
   - component: {fileID: 7271832221522474181}
   - component: {fileID: 7271832221522474191}
+  - component: {fileID: 4435333587533413438}
   - component: {fileID: 7271832221522474189}
   - component: {fileID: 7271832221522474190}
   m_Layer: 6
@@ -163,8 +164,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7271832221522474181}
   entity: {fileID: 7271832221522474190}
+  energy: {fileID: 4435333587533413438}
   accel: 1
-  energyCost: 0.01
+  energyCost: 20
+--- !u!114 &4435333587533413438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271832221522474182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c40d55c9c3b884f86090364a4a8863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxValue>k__BackingField: 100
+  <Value>k__BackingField: 100
 --- !u!114 &7271832221522474189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,5 +210,4 @@ MonoBehaviour:
   possessable: 1
   renderers:
   - {fileID: 7267422547863463687}
-  energyBar: {fileID: 0}
   uiPoint: {fileID: 0}

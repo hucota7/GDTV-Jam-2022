@@ -13,7 +13,7 @@ public class GhostEntity : Entity {
 
 	public override void Start() {
 		base.Start();
-		base.energyBar.HideBar();
+		base.EnergyBar.HideBar();
 	}
 
 	private void InitialPossesion(IPossessable possessable) {

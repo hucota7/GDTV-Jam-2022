@@ -6,14 +6,18 @@ public abstract class Entity : MonoBehaviour
 {
 	public bool possessable = true;
 	public Renderer[] renderers;
-	[HideInInspector]public EnergyBarUI energyBar;
+	public int[] rendererLayers { get; private set; } = null;
+	public EnergyBarUI EnergyBar { get; private set; } = null;
 	public Transform uiPoint;
 
     public virtual void Start()
     {
-		energyBar = Instantiate(InterfaceManager.Instance.energyBarPrefab, InterfaceManager.Instance.worldCanvas.transform);
-		energyBar.Init(1, 1);
-		energyBar.TempPain(this);
+		if (TryGetComponent(out Energy _))
+		{
+			EnergyBar = Instantiate(InterfaceManager.Instance.energyBarPrefab, InterfaceManager.Instance.worldCanvas.transform);
+			EnergyBar.Init(1, 1);
+			EnergyBar.TempPain(this);
+		}
 	}
 
     private void Reset()

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CanvasGroup))]
 public class StatusBarUI : MonoBehaviour
 {
-    [HideInInspector] public float currentValue, maxValue;
     public Image background, difference, fill;
     [HideInInspector] public CanvasGroup visuals;
     public float animationSpeed = 10;
@@ -17,17 +16,15 @@ public class StatusBarUI : MonoBehaviour
     }
     public virtual void Update()
     {
-        difference.fillAmount = Mathf.MoveTowards(difference.fillAmount, currentValue / maxValue, animationSpeed / maxValue * Time.deltaTime);
+        difference.fillAmount = Mathf.MoveTowards(difference.fillAmount, fill.fillAmount, animationSpeed * Time.deltaTime);
     }
     public virtual void Init(float currentValue, float maxValue)
     {
-        this.currentValue = currentValue;
-        this.maxValue = maxValue;
-        difference.fillAmount = fill.fillAmount = currentValue / maxValue;
+		difference.fillAmount = fill.fillAmount = 1;
     }
-    public virtual void UpdateBar()
+    public virtual void UpdateBar(float normalizedValue)
     {
-        fill.fillAmount = currentValue / maxValue;
+        fill.fillAmount = normalizedValue;
     }
     public virtual void ShowBar()
     {

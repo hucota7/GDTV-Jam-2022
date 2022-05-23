@@ -19,7 +19,7 @@ public class GhostPossessable : MonoBehaviour, IPossessable
 		movement.CC.enabled = true;
 		movement.CC.detectCollisions = true;
 
-		if (entity.energyBar) entity.energyBar.ShowBar();
+		if (entity.EnergyBar) entity.EnergyBar.ShowBar();
 		visuals.SetActive(true);
 
 		if (previouslyPossessed?.GetEntity() is Entity e)
@@ -35,7 +35,7 @@ public class GhostPossessable : MonoBehaviour, IPossessable
 
 	public void Unpossess(IPossessable newlyPossessed)
 	{
-		entity.energyBar.HideBar();
+		entity.EnergyBar.HideBar();
 		visuals.SetActive(false);
 		movement.CC.detectCollisions = false;
 
