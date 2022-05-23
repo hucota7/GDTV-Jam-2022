@@ -189,11 +189,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3773535884105787800, guid: fd1f3600c6f1c614489766a287449e35, type: 3}
   m_PrefabInstance: {fileID: 1500058526}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &450090638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6492589379387599767, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
-  m_PrefabInstance: {fileID: 1857599109}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &525814552 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7271832221522474182, guid: 41243e6a530325a4d9f01c756df6fcf4, type: 3}
@@ -5830,17 +5825,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8440236696254061079, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
   m_PrefabInstance: {fileID: 1857599109}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1064911179 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8440236696254061077, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
-  m_PrefabInstance: {fileID: 1857599109}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b527fb1b4e1bd04a8a68b18071bf91d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1189895384
 GameObject:
   m_ObjectHideFlags: 0
@@ -6051,7 +6035,7 @@ PrefabInstance:
       objectReference: {fileID: 2033190996}
     - target: {fileID: 3773535884105787803, guid: fd1f3600c6f1c614489766a287449e35, type: 3}
       propertyPath: possessableMask.m_Bits
-      value: 64
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 3773535884105787803, guid: fd1f3600c6f1c614489766a287449e35, type: 3}
       propertyPath: runPossessOnStartingPossessable
@@ -6116,22 +6100,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1411168616}
     m_Modifications:
-    - target: {fileID: 4423266316727730181, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
-      propertyPath: visuals
-      value: 
-      objectReference: {fileID: 450090638}
-    - target: {fileID: 4423266316727730181, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
-      propertyPath: ghostPossessable
-      value: 
-      objectReference: {fileID: 1064911179}
+    - target: {fileID: 2020456843776069436, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4423266316727730181, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
       propertyPath: possessionManager
       value: 
       objectReference: {fileID: 1453543462}
-    - target: {fileID: 5970966515390663132, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8440236696254061069, guid: 3b888f4527457ad44a64c952f776f4c8, type: 3}
       propertyPath: m_Name
       value: Ghost

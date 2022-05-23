@@ -26,7 +26,7 @@ public class EnergyBarUI : StatusBarUI
         }
         else
         {
-            Debug.LogWarning("No target, deleting energy bar!");
+            //Debug.LogWarning("No target, deleting energy bar!");
             Destroy(gameObject);
         }
     }

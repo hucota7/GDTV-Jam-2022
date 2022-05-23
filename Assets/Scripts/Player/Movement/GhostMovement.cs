@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostMovement : MonoBehaviour, IMoveable {
+	public CharacterController CC => cc;
 	[SerializeField] private CharacterController cc;
 	[Space]
 	[SerializeField] private float maxSpeed;

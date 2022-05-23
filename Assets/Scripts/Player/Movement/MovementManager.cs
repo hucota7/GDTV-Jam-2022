@@ -12,6 +12,15 @@ public class MovementManager : MonoBehaviour
 		possessionManager.Possessed += SetCurrentPossessedMovable;
 	}
 
+
+	private void Update()
+	{
+		if (currentPossessedMovable is IUseable useable)
+		{
+			if (Input.GetKeyDown(Keymap.Use)) useable.Use();
+		}
+	}
+
 	private void FixedUpdate()
 	{
 		if (currentPossessedMovable != null)
@@ -19,11 +28,6 @@ public class MovementManager : MonoBehaviour
 			Vector3 inputDirection = GetInputDirection();
 
 			currentPossessedMovable.Move(inputDirection);
-			
-			if (currentPossessedMovable is IUseable useable)
-			{
-				if (Input.GetKeyDown(Keymap.Use)) useable.Use();
-			}
 		}
 	}
 
