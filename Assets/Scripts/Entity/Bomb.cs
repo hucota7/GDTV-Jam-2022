@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : Entity
+public class Bomb : Entity, IMoveable, IUseable
 {
     public Explosion explosionObject;
     public int timeUntilExplosion = 3;//How long it takes to explode.
@@ -103,4 +103,11 @@ public class Bomb : Entity
         
         base.Die();
     }
+
+	public void Move(Vector3 direction) { }
+
+	public void Use()
+	{
+		bombLit = !bombLit;
+	}
 }

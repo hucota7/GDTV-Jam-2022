@@ -336,9 +336,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4355177660676388818}
   - component: {fileID: 8685447683619247142}
-  - component: {fileID: 6838167861164746658}
   - component: {fileID: 2812341022971010108}
-  - component: {fileID: 6666116850731421518}
+  - component: {fileID: 5361271851456612160}
   m_Layer: 6
   m_Name: Bomb
   m_TagString: Untagged
@@ -376,22 +375,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6838167861164746658
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4798319866019928424}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &2812341022971010108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,7 +394,7 @@ MonoBehaviour:
   - {fileID: 5412762116154014327}
   uiPoint: {fileID: 6046539946294322774}
   explosionObject: {fileID: 4174738416305188628, guid: 1f0cf1ea5934d0941985d7c39ab896ef, type: 3}
-  timeUntilExplosion: 15
+  timeUntilExplosion: 3
   startColors:
   - {r: 0.24705882, g: 0.24705882, b: 0.24705882, a: 1}
   - {r: 0.45490196, g: 0.49803922, b: 0.54901963, a: 1}
@@ -419,7 +402,7 @@ MonoBehaviour:
   bombLit: 0
   explosionTriggered: 0
   possessionManager: {fileID: 0}
---- !u!114 &6666116850731421518
+--- !u!114 &5361271851456612160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,8 +411,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4798319866019928424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b60bc0ae84962034f943195688def415, type: 3}
+  m_Script: {fileID: 11500000, guid: 2741232b2b99be4489b0ffb79cc4fa60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 2812341022971010108}
-  rb: {fileID: 6838167861164746658}
