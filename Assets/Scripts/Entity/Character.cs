@@ -12,6 +12,8 @@ public class Character : Entity, IMoveable, IUseable
 	[SerializeField] private float accel;
 	public Vector3 velocity = Vector3.zero;
 
+	float animSpeed = 0;
+
 	public override void Reset()
 	{
 		base.Reset();
@@ -28,6 +30,11 @@ public class Character : Entity, IMoveable, IUseable
 		base.Start();
 	}
 
+	public virtual void Update()
+	{
+		animator.SetFloat("Speed", animSpeed, 0.1f, Time.deltaTime);
+	}
+
 	public override void Die()
 	{
 		base.Die();
@@ -37,7 +44,8 @@ public class Character : Entity, IMoveable, IUseable
 	{
 		velocity = Vector3.MoveTowards(velocity, direction * maxSpeed, Time.deltaTime * accel);
 		cc.Move(velocity * Time.deltaTime);
-		animator.SetFloat("Speed", velocity.magnitude);
+		//animator.SetFloat("Speed", velocity.magnitude);
+		animSpeed = velocity.magnitude;
 		if (direction.magnitude > 0.1f)
 			Look(direction);
 	}
@@ -52,6 +60,7 @@ public class Character : Entity, IMoveable, IUseable
 	public virtual void Stop()
 	{
 		velocity = Vector3.zero;
-		animator.SetFloat("Speed", 0);
+		animSpeed = 0;
+		//animator.SetFloat("Speed", 0);
 	}
 }

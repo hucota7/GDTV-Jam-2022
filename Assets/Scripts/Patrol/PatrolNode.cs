@@ -13,7 +13,7 @@ public class PatrolNode : MonoBehaviour
 		// instruct character to move towards node
 		while (Vector2.Distance(character.transform.position.xz(), transform.position.xz()) > 0.1f)
 		{
-			character.Move((transform.position.xz() - character.transform.position.xz()).normalized.xz());
+			character.Move((transform.position.xz() - character.transform.position.xz()).normalized.xz() / 2);
 			yield return new WaitForEndOfFrame();
 		}
 
