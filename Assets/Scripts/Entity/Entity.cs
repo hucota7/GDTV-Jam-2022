@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-	public bool possessable = true;
 	public Renderer[] renderers;
 	public int[] rendererLayers { get; private set; } = null;
 	public EnergyBarUI EnergyBar { get; private set; } = null;
@@ -29,7 +28,7 @@ public abstract class Entity : MonoBehaviour
 		}
 	}
 
-    private void Reset()
+    public virtual void Reset()
 	{
 		renderers = GetComponentsInChildren<Renderer>();
 	}
