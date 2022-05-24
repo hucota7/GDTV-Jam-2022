@@ -10,7 +10,7 @@ public abstract class Entity : MonoBehaviour
 	public EnergyBarUI EnergyBar { get; private set; } = null;
 	public Transform uiPoint;
 
-	private void Awake()
+	public virtual void Awake()
 	{
 		rendererLayers = new int[renderers.Length];
 		for (int i = 0; i < rendererLayers.Length; i++)

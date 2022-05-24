@@ -19,9 +19,10 @@ public class Bomb : Entity
 	float timeLit = -1;
 
 	float litDuration => timeLit == -1 ? 0 : Time.time - timeLit;
-
-	private void Awake()
+	
+	public override void Awake()
 	{
+		base.Awake();
 		genericPossessable = GetComponent<IPossessable>();
 	}
 

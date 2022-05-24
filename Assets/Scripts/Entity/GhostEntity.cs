@@ -7,7 +7,8 @@ public class GhostEntity : Entity {
 	[SerializeField] public GhostPossessable ghostPossessable;
 	[SerializeField] private GameObject visuals;
 
-	private void Awake() {
+	public override void Awake() {
+		base.Awake();
 		possessionManager.InitialPossession += InitialPossesion;
 	}
 
