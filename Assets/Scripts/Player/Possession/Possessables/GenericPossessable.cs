@@ -22,9 +22,9 @@ public class GenericPossessable : MonoBehaviour, IPossessable {
 	public void Unpossess(IPossessable newlyPossessed) {
 		rb.velocity = Vector3.zero;
 
-		foreach (var ren in entity.renderers)
+		for (int i = 0; i < entity.renderers.Length; i++)
 		{
-			ren.gameObject.layer = 0;
+			entity.renderers[i].gameObject.layer = entity.rendererLayers[i];
 		}
 	}
 }

@@ -10,7 +10,16 @@ public abstract class Entity : MonoBehaviour
 	public EnergyBarUI EnergyBar { get; private set; } = null;
 	public Transform uiPoint;
 
-    public virtual void Start()
+	private void Awake()
+	{
+		rendererLayers = new int[renderers.Length];
+		for (int i = 0; i < rendererLayers.Length; i++)
+		{
+			rendererLayers[i] = renderers[i].gameObject.layer;
+		}
+	}
+
+	public virtual void Start()
     {
 		if (TryGetComponent(out Energy _))
 		{
@@ -24,6 +33,7 @@ public abstract class Entity : MonoBehaviour
 	{
 		renderers = GetComponentsInChildren<Renderer>();
 	}
+
 	public virtual void Die()
 	{
 		Debug.Log(gameObject.name + " has died!");
