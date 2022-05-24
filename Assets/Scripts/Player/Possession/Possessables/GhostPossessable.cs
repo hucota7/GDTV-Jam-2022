@@ -13,6 +13,8 @@ public class GhostPossessable : MonoBehaviour, IPossessable
 
 	public void Possess(IPossessable previouslyPossessed)
 	{
+		Outline.SetColor(new Color(1, 0.33f, 0));
+
 		// yes, this *is* necessary.
 		movement.CC.enabled = false;
 		transform.SetParent(transform.parent ? transform.parent.parent : null);
@@ -36,6 +38,8 @@ public class GhostPossessable : MonoBehaviour, IPossessable
 
 	public void Unpossess(IPossessable newlyPossessed)
 	{
+		Outline.SetColor(Color.cyan);
+
 		if (entity.EnergyBar) entity.EnergyBar.HideBar();
 		visuals.SetActive(false);
 		movement.CC.detectCollisions = false;

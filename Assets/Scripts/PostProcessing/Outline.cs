@@ -4,7 +4,7 @@ public class Outline : MonoBehaviour
 {
 	public Shader solidColorShader;
 	public Shader outlineShader;
-	Material _outlineMaterial;
+	static Material _outlineMaterial;
 	Camera TempCam;
 	float[] kernel;
 	void Start()
@@ -23,7 +23,7 @@ public class Outline : MonoBehaviour
 
 		TempCam.cullingMask = 1 << LayerMask.NameToLayer("Outline");
 
-		var rt = RenderTexture.GetTemporary(src.width, src.height, 0, RenderTextureFormat.R8);
+		var rt = RenderTexture.GetTemporary(src.width, src.height, 0, RenderTextureFormat.ARGB32);
 		TempCam.targetTexture = rt;
 
 		TempCam.RenderWithShader(solidColorShader, "");
@@ -38,5 +38,10 @@ public class Outline : MonoBehaviour
 		Graphics.Blit(rt, dst, _outlineMaterial);
 		TempCam.targetTexture = src;
 		RenderTexture.ReleaseTemporary(rt);
+	}
+
+	public static void SetColor(Color color)
+	{
+		_outlineMaterial.SetColor("_Color", color);
 	}
 }
