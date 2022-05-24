@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7271832221522474184}
   - component: {fileID: 7271832221522474187}
-  - component: {fileID: 7271832221522474181}
+  - component: {fileID: 8240870354538680173}
   - component: {fileID: 7271832221522474191}
   - component: {fileID: 4435333587533413438}
   - component: {fileID: 7271832221522474189}
@@ -83,22 +83,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &7271832221522474181
-Rigidbody:
+--- !u!143 &8240870354538680173
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7271832221522474182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 0
+  m_Height: 0.5
+  m_Radius: 0.25
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7271832221522474191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,10 +113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72eec2b3ae44dae41a9dff331594dbf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7271832221522474181}
+  <CC>k__BackingField: {fileID: 8240870354538680173}
+  rb: {fileID: 0}
   entity: {fileID: 7271832221522474190}
   energy: {fileID: 4435333587533413438}
-  accel: 1
+  maxSpeed: 0.5
+  accel: 7
   energyCost: 20
 --- !u!114 &4435333587533413438
 MonoBehaviour:
@@ -143,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 7271832221522474190}
-  rb: {fileID: 7271832221522474181}
+  rb: {fileID: 0}
 --- !u!114 &7271832221522474190
 MonoBehaviour:
   m_ObjectHideFlags: 0
