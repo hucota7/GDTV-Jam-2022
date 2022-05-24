@@ -39,7 +39,12 @@ public class Character : Entity, IMoveable, IUseable
 		cc.Move(velocity * Time.deltaTime);
 		animator.SetFloat("Speed", velocity.magnitude);
 		if (direction.magnitude > 0.1f)
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 720);
+			Look(direction);
+	}
+
+	public virtual void Look(Vector3 direction, float rate = 720)
+	{
+		transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * rate);
 	}
 
 	public virtual void Use() { }

@@ -19,25 +19,31 @@ public class Ragdoll : MonoBehaviour
     private void GetRagdollReferences()
     {
         if (_animator == null) return;
+		try
+		{
+			for (int i = 0; i < 18; i++)
+			{
+				var bone = _animator.GetBoneTransform((HumanBodyBones)i);
 
-        for (int i = 0; i < 18; i++)
-        {
-            var bone = _animator.GetBoneTransform((HumanBodyBones)i);
+				// try get rigidbody component
+				if (bone.TryGetComponent(out Rigidbody rb))
+				{
+					rb.isKinematic = true; // deactivate physics
+					_ragdollRigidbodies.Add(rb);
+				}
 
-            // try get rigidbody component
-            if (bone.TryGetComponent(out Rigidbody rb))
-            {
-                rb.isKinematic = true; // deactivate physics
-                _ragdollRigidbodies.Add(rb);
-            }
-
-            // try get collider component
-            if (bone.TryGetComponent(out Collider coll))
-            {
-                coll.enabled = false;
-                _ragdollColliders.Add(coll);
-            }
-        }
+				// try get collider component
+				if (bone.TryGetComponent(out Collider coll))
+				{
+					coll.enabled = false;
+					_ragdollColliders.Add(coll);
+				}
+			}
+		}
+		catch(System.Exception ex)
+		{
+			Debug.LogWarning(ex);
+		}
     }
 
     public void ActivateRagdoll()
