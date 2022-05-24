@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class GhostMovement : MonoBehaviour, IMoveable
 {
-	public CharacterController CC => cc;
-	[SerializeField] private CharacterController cc;
+	[field: SerializeField] public CharacterController CC { get; private set; }
 	[Space]
 	[SerializeField] private float maxSpeed;
 	[SerializeField] private float accel;
 
-	public Vector3 velocity = Vector3.zero;
+	[HideInInspector] public Vector3 velocity;
 
 	public void Move(Vector3 direction)
 	{
 		velocity = Vector3.MoveTowards(velocity, direction * maxSpeed, Time.deltaTime * accel);
-		cc.Move(velocity * Time.deltaTime);
+		CC.Move(velocity * Time.deltaTime);
 	}
 }
