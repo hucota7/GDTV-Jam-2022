@@ -15,6 +15,7 @@ public class Explosion : Entity
     private Vector3 startScale;
     public float explosionRadius = 2;
 
+    
     int timeAlive = 1;
 
 	public override void Start()
@@ -23,6 +24,7 @@ public class Explosion : Entity
         startScale = transform.localScale;
         deathTime = Time.time + timeAlive;
         startColor = rend.material.color;
+        AudioManager.Play("ExplosionSFX");
     }
 
     void Update()

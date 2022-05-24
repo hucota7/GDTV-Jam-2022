@@ -18,20 +18,34 @@ public class ToggleGhostPossessionBehaviour : PossessionBehaviourConcreteImpleme
 
 		for (int i = 0; i < possessableObjects.Length; i++) {
 			possessables[i] = possessableObjects[i].GetComponent<IPossessable>();
+			if (possessables[i] == null)
+			{
+				Debug.LogWarning($"{possessableObjects[i]} does not have an IPossessable component");
+			}
 		}
 
 		IPossessable closestPossesable = null;
 		float closestDistance = possessionRadius;
 
 		foreach (var possessable in possessables) {
+			if (possessable == null)
+				continue;
 			if (possessable == context.currentPossessed)
 				continue;
 
-			float distance = Vector3.Distance(currentPossessedPosition, possessable.GetEntity().transform.position);
+			if (possessable.GetEntity() is Entity e)
+			{
+				float distance = Vector3.Distance(currentPossessedPosition, e.transform.position);
 
-			if (distance < closestDistance) {
-				closestPossesable = possessable;
-				closestDistance = distance;
+				if (distance < closestDistance)
+				{
+					closestPossesable = possessable;
+					closestDistance = distance;
+				}
+			}
+			else
+			{
+				Debug.LogWarning($"{possessable} doesn't have an entity");
 			}
 		}
 

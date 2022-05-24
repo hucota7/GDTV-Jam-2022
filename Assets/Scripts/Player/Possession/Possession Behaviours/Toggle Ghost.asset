@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Toggle Ghost
   m_EditorClassIdentifier: 
   ghostPossessable: {fileID: 0}
-  possessionRadius: 5
+  possessionRadius: 2
   possessableMask:
     serializedVersion: 2
     m_Bits: 64

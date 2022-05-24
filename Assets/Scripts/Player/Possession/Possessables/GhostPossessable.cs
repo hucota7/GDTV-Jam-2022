@@ -16,6 +16,7 @@ public class GhostPossessable : MonoBehaviour, IPossessable
 		// yes, this *is* necessary.
 		movement.CC.enabled = false;
 		transform.SetParent(transform.parent ? transform.parent.parent : null);
+		transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
 		movement.CC.enabled = true;
 		movement.CC.detectCollisions = true;
 

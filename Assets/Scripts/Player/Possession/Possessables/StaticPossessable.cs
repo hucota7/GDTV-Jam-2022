@@ -21,9 +21,9 @@ public class StaticPossessable : MonoBehaviour, IPossessable
 
 	public void Unpossess(IPossessable newlyPossessed)
 	{
-		foreach (var ren in entity.renderers)
+		for (int i = 0; i < entity.renderers.Length; i++)
 		{
-			ren.gameObject.layer = 0;
+			entity.renderers[i].gameObject.layer = entity.rendererLayers[i];
 		}
 	}
 }

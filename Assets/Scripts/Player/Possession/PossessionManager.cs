@@ -58,12 +58,20 @@ public class PossessionManager : MonoBehaviour
 
 			foreach (var possessable in possessables)
 			{
-				float distance = Vector3.Distance(transform.position, possessable.GetEntity().transform.position);
-
-				if (distance < closestDistance)
+				if (possessable == null) continue;
+				if (possessable.GetEntity() is Entity e)
 				{
-					closestPossesable = possessable;
-					closestDistance = distance;
+					float distance = Vector3.Distance(transform.position, e.transform.position);
+
+					if (distance < closestDistance)
+					{
+						closestPossesable = possessable;
+						closestDistance = distance;
+					}
+				}
+				else
+				{
+					Debug.LogWarning($"{possessable} has no entity");
 				}
 			}
 

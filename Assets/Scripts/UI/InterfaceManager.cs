@@ -5,7 +5,8 @@ using UnityEngine;
 public class InterfaceManager : MonoBehaviour
 {
 	[Header("References")]
-	public Canvas mainCanvas, worldCanvas;
+	public Canvas mainCanvas;
+	public Canvas worldCanvas;
 
 	[Header("Prefabs")]
 	public EnergyBarUI energyBarPrefab;
