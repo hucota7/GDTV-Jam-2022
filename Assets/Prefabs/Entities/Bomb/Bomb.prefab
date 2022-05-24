@@ -197,6 +197,37 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1669166697538005930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6046539946294322774}
+  m_Layer: 0
+  m_Name: UIPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6046539946294322774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669166697538005930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.511, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4355177660676388818}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4043672444948281186
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +359,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2558488917928707020}
+  - {fileID: 6046539946294322774}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -377,15 +409,16 @@ MonoBehaviour:
   - {fileID: 5490688978129438669}
   - {fileID: 16797911996068015}
   - {fileID: 5412762116154014327}
-  energyBar: {fileID: 0}
-  uiPoint: {fileID: 0}
+  uiPoint: {fileID: 6046539946294322774}
   explosionObject: {fileID: 4174738416305188628, guid: 1f0cf1ea5934d0941985d7c39ab896ef, type: 3}
   timeUntilExplosion: 15
   startColors:
   - {r: 0.24705882, g: 0.24705882, b: 0.24705882, a: 1}
   - {r: 0.45490196, g: 0.49803922, b: 0.54901963, a: 1}
   - {r: 0.8, g: 0.7411765, b: 0.42745098, a: 1}
+  bombLit: 0
   explosionTriggered: 0
+  possessionManager: {fileID: 0}
 --- !u!114 &6666116850731421518
 MonoBehaviour:
   m_ObjectHideFlags: 0
