@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4112460455540061135}
   - component: {fileID: 348771031853157692}
   - component: {fileID: 9192540525300593361}
+  - component: {fileID: 4962699573436083518}
   m_Layer: 6
   m_Name: CeilingLamp
   m_TagString: Untagged
@@ -66,6 +67,19 @@ MonoBehaviour:
   uiPoint: {fileID: 4231796459847289801}
   isOn: 0
   ceilingLight: {fileID: 1765990184654322405}
+--- !u!65 &4962699573436083518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3687706735404110594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.5, z: 0.4}
+  m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!1 &7902948348908481794
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +166,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 64690783251695574, guid: 5ccb7635a0b4e9c408b824b36c335674, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 64690783251695574, guid: 5ccb7635a0b4e9c408b824b36c335674, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5ccb7635a0b4e9c408b824b36c335674, type: 3}
 --- !u!108 &1765990184654322405 stripped
 Light:
