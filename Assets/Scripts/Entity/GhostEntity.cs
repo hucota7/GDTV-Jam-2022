@@ -17,9 +17,6 @@ public class GhostEntity : Entity {
 	}
 
 	private void InitialPossesion(IPossessable possessable) {
-		if (possessable != (IPossessable)ghostPossessable)
-			return;
-
-		visuals.SetActive(true);
+		visuals.SetActive(possessable == (IPossessable)ghostPossessable);
 	}
 }

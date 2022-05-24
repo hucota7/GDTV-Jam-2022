@@ -57,6 +57,12 @@ public class MovementManager : MonoBehaviour
 		if (Input.GetKey(Keymap.Down))
 			direction.z--;
 
-		return direction.normalized;
+		float cameraRotation = (-Camera.main.transform.localEulerAngles.y) * Mathf.Deg2Rad;
+
+		Vector3 cameraRelativeDirection = direction;
+		cameraRelativeDirection.x = direction.x * Mathf.Cos(cameraRotation) - direction.z * Mathf.Sin(cameraRotation);
+		cameraRelativeDirection.z = direction.x * Mathf.Sin(cameraRotation) + direction.z * Mathf.Cos(cameraRotation);
+		
+		return cameraRelativeDirection.normalized;
 	}
 }

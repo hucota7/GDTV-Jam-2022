@@ -29,6 +29,7 @@ public class PossessionManager : MonoBehaviour
 			do
 			{
 				possessableObjects = Physics.OverlapSphere(transform.position, searchRadious, possessableMask, QueryTriggerInteraction.Collide);
+				searchRadious += 5;
 			}
 			while (possessableObjects.Length == 0 && searchRadious < 100);
 
