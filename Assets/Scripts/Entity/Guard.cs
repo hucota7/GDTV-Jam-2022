@@ -9,9 +9,9 @@ public class Guard : Character
     public override void Start()
     {
         base.Start();
-		// GetComponent<Ragdoll>().ActivateRagdoll();
+		//GetComponent<Ragdoll>().ActivateRagdoll();
 		StartCoroutine(FollowRoute());
-    }
+	}
 
 	IEnumerator FollowRoute()
 	{
