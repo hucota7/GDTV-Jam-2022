@@ -72,4 +72,19 @@ public abstract class Entity : MonoBehaviour
 			}
 		}
 	}
+
+	public void SetOutline()
+	{
+		foreach (var ren in renderers)
+		{
+			ren.gameObject.layer = LayerMask.NameToLayer("Outline");
+		}
+	}
+	public void ClearOutline()
+	{
+		for (int i = 0; i < renderers.Length; i++)
+		{
+			renderers[i].gameObject.layer = rendererLayers[i];
+		}
+	}
 }

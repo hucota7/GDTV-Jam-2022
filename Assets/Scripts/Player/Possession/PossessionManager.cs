@@ -8,7 +8,7 @@ public class PossessionManager : MonoBehaviour
 	public Action<IPossessable> Possessed;
 
 	[Tooltip("Only used if closestPossesableAsStartingPossessable is false")]
-	[SerializeField] private GenericPossessable startingPossable;
+	[SerializeField] private Possessable startingPossable;
 	[SerializeField] private bool closestPossesableAsStartingPossessable;
 	[Tooltip("Only used if closestPossesableAsStartingPossessable is true")]
 	[SerializeField] private LayerMask possessableMask;
@@ -16,6 +16,8 @@ public class PossessionManager : MonoBehaviour
 	[SerializeField] private bool runPossessOnStartingPossessable;
 	[Space]
 	[SerializeField] private PossessionBehaviourConcreteImplementation possessionBehaviour;
+
+	Possessable nearPossessable = null;
 
 	public IPossessable CurrentPossessed { get; private set; }
 
@@ -90,6 +92,31 @@ public class PossessionManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(Keymap.Possess))
 			Possess();
+
+		if (CurrentPossessed is GhostPossessable)
+		{
+			IPossessable near = possessionBehaviour.GetPossessable(new PossessionBehaviourContext() { currentPossessed = CurrentPossessed });
+
+			if (near == null && nearPossessable != null)
+			{
+				nearPossessable.GetEntity().ClearOutline();
+				nearPossessable = null;
+			}
+			else if (near is Possessable p)
+			{
+				if (nearPossessable == null)
+				{
+					nearPossessable = p;
+					nearPossessable.GetEntity().SetOutline();
+				}
+				else if (nearPossessable != p)
+				{
+					nearPossessable.GetEntity().ClearOutline();
+					nearPossessable = p;
+					nearPossessable.GetEntity().SetOutline();
+				}
+			}
+		}
 	}
 
 	public void Possess()

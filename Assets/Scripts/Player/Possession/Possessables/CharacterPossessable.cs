@@ -2,32 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterPossessable : MonoBehaviour, IPossessable
+public class CharacterPossessable : Possessable
 {
-	public Character characterEntity;
+	Character characterEntity => entity as Character;
 
-	public Entity GetEntity() => characterEntity;
-
-	public void Possess(IPossessable previouslyPossessed)
+	public override void Possess(IPossessable previouslyPossessed)
 	{
+		base.Possess(previouslyPossessed);
+
 		Rigidbody previouslyPossessedRB = previouslyPossessed.GetEntity().GetComponent<Rigidbody>();
 
 		if (previouslyPossessedRB != null)
 			characterEntity.velocity = previouslyPossessedRB.velocity;
-
-		foreach (var ren in characterEntity.renderers)
-		{
-			ren.gameObject.layer = LayerMask.NameToLayer("Outline");
-		}
+		
 	}
 
-	public void Unpossess(IPossessable newlyPossessed)
+	public override void Unpossess(IPossessable newlyPossessed)
 	{
-		characterEntity.Stop();
+		base.Unpossess(newlyPossessed);
 
-		for (int i = 0; i < characterEntity.renderers.Length; i++)
-		{
-			characterEntity.renderers[i].gameObject.layer = characterEntity.rendererLayers[i];
-		}
+		characterEntity.Stop();
+	}
+
+	private void OnValidate()
+	{
+		if (!(entity is Character))
+			entity = null;
 	}
 }

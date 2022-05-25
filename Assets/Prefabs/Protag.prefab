@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 8240870354538680173}
   - component: {fileID: 7271832221522474191}
   - component: {fileID: 4435333587533413438}
-  - component: {fileID: 7271832221522474189}
   - component: {fileID: 7271832221522474190}
+  - component: {fileID: -1425609132975528322}
   m_Layer: 6
   m_Name: Protag
   m_TagString: Untagged
@@ -134,20 +134,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MaxValue>k__BackingField: 100
   <Value>k__BackingField: 100
---- !u!114 &7271832221522474189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7271832221522474182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b60bc0ae84962034f943195688def415, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 7271832221522474190}
-  rb: {fileID: 0}
 --- !u!114 &7271832221522474190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +150,19 @@ MonoBehaviour:
   - {fileID: 3168285131967231039}
   - {fileID: 9196984664554024738}
   uiPoint: {fileID: 4356194646876446856}
+--- !u!114 &-1425609132975528322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271832221522474182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf78b0f00f9beaa42a2b0045b024483b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 7271832221522474190}
 --- !u!1001 &4420773320366500205
 PrefabInstance:
   m_ObjectHideFlags: 0

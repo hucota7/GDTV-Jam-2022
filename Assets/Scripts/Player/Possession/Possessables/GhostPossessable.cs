@@ -1,18 +1,14 @@
 using UnityEngine;
 
-public class GhostPossessable : MonoBehaviour, IPossessable
+public class GhostPossessable : Possessable
 {
-	[SerializeField] private Entity entity;
 	[SerializeField] private GhostMovement movement;
 	[SerializeField] private GameObject visuals;
 
-	public Entity GetEntity()
+	public override void Possess(IPossessable previouslyPossessed)
 	{
-		return entity;
-	}
+		base.Possess(previouslyPossessed);
 
-	public void Possess(IPossessable previouslyPossessed)
-	{
 		Outline.SetColor(new Color(1, 0.33f, 0));
 
 		// yes, this *is* necessary.
@@ -36,8 +32,10 @@ public class GhostPossessable : MonoBehaviour, IPossessable
 		}
 	}
 
-	public void Unpossess(IPossessable newlyPossessed)
+	public override void Unpossess(IPossessable newlyPossessed)
 	{
+		base.Unpossess(newlyPossessed);
+
 		Outline.SetColor(Color.cyan);
 
 		if (entity.EnergyBar) entity.EnergyBar.HideBar();
