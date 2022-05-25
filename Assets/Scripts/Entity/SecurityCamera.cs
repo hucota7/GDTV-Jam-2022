@@ -10,4 +10,7 @@ public class SecurityCamera : Entity
     //or turn off the camera's ability to sense you some other way?
     //or hop into the security camera's camera-view?
     //or manually control camera's view in some way.
+
+    //cam standby beeping sound
+    // AudioManager.Play("CamBeepSFX"); 
 }

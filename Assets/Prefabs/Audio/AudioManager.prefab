@@ -207,6 +207,10 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: 8de28e3f7c455044fba5a4062011b0b7, type: 3}
     - Key: WarningAlertSFX
       Value: {fileID: 8300000, guid: 9e199dea9eba2d14b95fc9c02aa2fafb, type: 3}
+    - Key: PossessionSFX
+      Value: {fileID: 8300000, guid: 1b7ecd13c14909c4ab28e679d0bede36, type: 3}
+    - Key: UnpossessionSFX
+      Value: {fileID: 8300000, guid: e206a426b1ead1b45940abf36ecbcb4f, type: 3}
   musicBank:
     kvps: []
 --- !u!1 &5945269308777062675
