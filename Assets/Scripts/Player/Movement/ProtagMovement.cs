@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ProtagMovement : MonoBehaviour, IMoveable {
 	[field: SerializeField] public CharacterController CC { get; private set; }
-	[SerializeField] private Rigidbody rb;
 	[SerializeField] private Entity entity;
 	[SerializeField] private Energy energy;
 	[Space]
