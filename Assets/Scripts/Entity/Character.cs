@@ -10,9 +10,10 @@ public class Character : Entity, IMoveable, IUseable
 
 	[SerializeField] private float maxSpeed;
 	[SerializeField] private float accel;
-	public Vector3 velocity = Vector3.zero;
+	[SerializeField, ReadOnly] Vector3 velocity = Vector3.zero;
 
-	[HideInInspector] public ThoughtBubble thoughtBubble;
+	public ThoughtBubble ThoughtBubble { get; private set; }
+	public bool CanMove { get; protected set; }
 
 	float animSpeed = 0;
 
@@ -30,8 +31,8 @@ public class Character : Entity, IMoveable, IUseable
 	public override void Start()
 	{
 		base.Start();
-		thoughtBubble = Instantiate(InterfaceManager.Instance.thoughtBubblePrefab, InterfaceManager.Instance.worldCanvas.transform);
-		thoughtBubble.Init(uiPoint);
+		ThoughtBubble = Instantiate(InterfaceManager.Instance.thoughtBubblePrefab, InterfaceManager.Instance.worldCanvas.transform);
+		ThoughtBubble.Init(uiPoint);
 	}
 
 	public virtual void Update()
@@ -46,6 +47,8 @@ public class Character : Entity, IMoveable, IUseable
 
 	public virtual void Move(Vector3 direction)
 	{
+		if (CanMove == false) return;
+
 		velocity = Vector3.MoveTowards(velocity, direction * maxSpeed, Time.deltaTime * accel);
 		cc.Move(velocity * Time.deltaTime);
 		//animator.SetFloat("Speed", velocity.magnitude);

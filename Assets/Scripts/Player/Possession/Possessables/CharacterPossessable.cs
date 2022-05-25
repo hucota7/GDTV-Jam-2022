@@ -10,10 +10,10 @@ public class CharacterPossessable : Possessable
 	{
 		base.Possess(previouslyPossessed);
 
-		Rigidbody previouslyPossessedRB = previouslyPossessed.GetEntity().GetComponent<Rigidbody>();
+		//Rigidbody previouslyPossessedRB = previouslyPossessed.GetEntity().GetComponent<Rigidbody>();
 
-		if (previouslyPossessedRB != null)
-			characterEntity.velocity = previouslyPossessedRB.velocity;
+		//if (previouslyPossessedRB != null)
+		//	characterEntity.velocity = previouslyPossessedRB.velocity;
 		
 	}
 
@@ -22,6 +22,7 @@ public class CharacterPossessable : Possessable
 		base.Unpossess(newlyPossessed);
 
 		characterEntity.Stop();
+		characterEntity.ThoughtBubble.Question();
 	}
 
 	private void OnValidate()
