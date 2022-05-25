@@ -12,6 +12,8 @@ public class Character : Entity, IMoveable, IUseable
 	[SerializeField] private float accel;
 	public Vector3 velocity = Vector3.zero;
 
+	[HideInInspector] public ThoughtBubble thoughtBubble;
+
 	float animSpeed = 0;
 
 	public override void Reset()
@@ -28,6 +30,8 @@ public class Character : Entity, IMoveable, IUseable
 	public override void Start()
 	{
 		base.Start();
+		thoughtBubble = Instantiate(InterfaceManager.Instance.thoughtBubblePrefab, InterfaceManager.Instance.worldCanvas.transform);
+		thoughtBubble.Init(uiPoint);
 	}
 
 	public virtual void Update()

@@ -5,12 +5,39 @@ using UnityEngine;
 public class Guard : Character
 {
 	[field: SerializeField] public PatrolRoute Route { get; private set; }
+	Possessable possessable;
 
-    public override void Start()
+	bool wasPossessed = false;
+
+	public override void Awake()
+	{
+		base.Awake();
+		possessable = GetComponent<Possessable>();
+	}
+
+	public override void Start()
     {
         base.Start();
 		//GetComponent<Ragdoll>().ActivateRagdoll();
 		StartCoroutine(FollowRoute());
+	}
+
+	public override void Update()
+	{
+		base.Update();
+		
+		if (wasPossessed && !possessable.IsPossessed)
+		{
+			Debug.Log("Starting route");
+			StartCoroutine(FollowRoute());
+		}
+		else if (!wasPossessed && possessable.IsPossessed)
+		{
+			Debug.Log("Stopping route");
+			StopAllCoroutines();
+		}
+
+		wasPossessed = possessable.IsPossessed;
 	}
 
 	IEnumerator FollowRoute()
@@ -20,5 +47,6 @@ public class Guard : Character
 		{
 			yield return route;
 		}
+		Debug.Log(Route ? "End of route" : "Lost route");
 	}
 }

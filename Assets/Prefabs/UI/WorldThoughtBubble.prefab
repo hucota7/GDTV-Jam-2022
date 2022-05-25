@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 6765750472411693237}
   - component: {fileID: 6882622752780585844}
   - component: {fileID: 7777179297090691889}
+  - component: {fileID: -7682510245749678582}
   m_Layer: 5
   m_Name: WorldThoughtBubble
   m_TagString: Untagged
@@ -184,3 +185,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7682510245749678582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818405695643597547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f421868222cda0446819f5b460914020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  animator: {fileID: 7777179297090691889}
+  thoughtImage: {fileID: 6640934001682431896}
+  offset: {x: 0, y: 0, z: 0}

@@ -4,6 +4,8 @@ public class Possessable : MonoBehaviour, IPossessable
 {
 	[SerializeField] protected Entity entity;
 
+	public bool IsPossessed { get; private set; }
+
 	public Entity GetEntity()
 	{
 		return entity;
@@ -11,13 +13,15 @@ public class Possessable : MonoBehaviour, IPossessable
 
 	public virtual void Possess(IPossessable previouslyPossessed)
 	{
+		IsPossessed = true;
 		entity.SetOutline();
-        //AudioManager.Play("PossessionSFX");
+		//AudioManager.Play("PossessionSFX");
 		//except when "possessing" the ghost
-    }
+	}
 
-    public virtual void Unpossess(IPossessable newlyPossessed)
+	public virtual void Unpossess(IPossessable newlyPossessed)
 	{
+		IsPossessed = false;
 		entity.ClearOutline();
 		//AudioManager.Play("UnpossessionSFX");
 		//except when "unpossessing" the ghost
