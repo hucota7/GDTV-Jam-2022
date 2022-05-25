@@ -26,10 +26,13 @@ public class ThoughtBubble : MonoBehaviour
     public void Exclamation(Color color)
     {
         PlayThought("Exclamation", color);
+        AudioManager.Play("WarningAlertSFX");
     }
     public void Question()
     {
         PlayThought("Question", Color.white);
+        AudioManager.Play("QuestionSFX");
+        
     }
     public void Sleep()
     {
