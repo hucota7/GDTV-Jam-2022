@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 4423266316727730181}
   - component: {fileID: 8440236696254061083}
   - component: {fileID: 8440236696254061082}
+  - component: {fileID: 1648956853085879337}
   m_Layer: 8
   m_Name: Ghost
   m_TagString: Untagged
@@ -410,6 +411,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleGhostPossessionBehaviour: {fileID: 11400000, guid: 690934fa7136b64409f51f1ab45192b4, type: 2}
   ghostPossessable: {fileID: 8440236696254061077}
+--- !u!114 &1648956853085879337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440236696254061069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2000bbe3cf66c8046b5f6ad4c8e83e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatingGameObject: {fileID: 2020456843776069436}
+  rotationSpeedX: 0
+  rotationSpeedY: 100
+  rotationSpeedZ: 0
 --- !u!1001 &5548490972060016501
 PrefabInstance:
   m_ObjectHideFlags: 0
