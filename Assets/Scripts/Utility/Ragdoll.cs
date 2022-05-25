@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ragdoll : MonoBehaviour
 {
+	private Character _character;
     private Animator _animator;      // reference to animator. It must be deactivated in order to make sure the ragdoll works
 
     // ragdoll rigidbodies
@@ -12,6 +13,7 @@ public class Ragdoll : MonoBehaviour
 
     private void Awake()
     {
+		_character = GetComponent<Character>();
         _animator = GetComponent<Animator>();
         GetRagdollReferences();
     }
@@ -47,6 +49,7 @@ public class Ragdoll : MonoBehaviour
         if (_animator == null) return;
 
         _animator.enabled = false;
+		_character.enabled = false;
 
         // activate rigidbodies
         _ragdollRigidbodies.ForEach(r =>
@@ -58,4 +61,6 @@ public class Ragdoll : MonoBehaviour
         // activate colliders
         _ragdollColliders.ForEach(c => c.enabled = true);
     }
+
+	public IEnumerable<Collider> Colliders => _ragdollColliders;
 }

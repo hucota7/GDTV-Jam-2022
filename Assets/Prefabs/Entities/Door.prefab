@@ -115,10 +115,17 @@ MonoBehaviour:
   - {fileID: 6937099827866938036}
   - {fileID: 5555274265415832017}
   uiPoint: {fileID: 4067785726798296645}
-  doorTransform: {fileID: 3254633518207816830}
-  doorRotation: {x: 0, y: 90, z: 0}
+  pivots:
+  - {fileID: 3254633518207816830}
+  startEuler:
+  - {x: 0, y: 0, z: 0}
+  doorRotation:
+  - {x: 0, y: 90, z: 0}
   openSpeed: 4
   requiresKey: 0
+  rotationAxis: {x: 0, y: 1, z: 0}
+  openAngle:
+  - -90
 --- !u!135 &1795317913
 SphereCollider:
   m_ObjectHideFlags: 0

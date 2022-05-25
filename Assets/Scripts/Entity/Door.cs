@@ -5,35 +5,49 @@ using UnityEngine;
 public class Door : Entity, IMoveable, IUseable
 {
     [Header("Door Variables")]
-    public Transform doorTransform; //The transform that rotates. Best to use an empty gameobject as a pivot point and parent the door model to it.
-    private Vector3 startEuler; //The rotation of the door on startup. Used to determine where the new rotation will be when the door is open.
-    public Vector3 doorRotation = new Vector3(0f, 90f, 0f); //The new rotation that the door will move to. Default is 90deg in the y-axis.
+    public Transform[] pivots; //The pivots that rotate. Best to use an empty gameobject as a pivot point and child the door model to it.
+	public Vector3 rotationAxis = Vector3.up; //The axis in local space around which the door rotates
+	public float[] openAngle; //The angle at which the door is fully open
     public float openSpeed = 4f; //Speed at which the door opens (and closes).
     public bool requiresKey = false; //Does this door require a key?
 
-	bool isOpen = false;
+
+
+	[SerializeField] bool isOpen = false;
 
 	private void Update()
 	{
 		if (isOpen)
-			OpenDoor();
+			OpenDoors();
 		else
-			CloseDoor();
+			CloseDoors();
 	}
 
-	public void OpenDoor()
+	public virtual void OpenDoors()
     {
-        doorTransform.eulerAngles = Vector3.Lerp(doorTransform.eulerAngles, startEuler + doorRotation, openSpeed * Time.deltaTime);
+        for (int i = 0; i < pivots.Length; i++)
+        {
+			pivots[i].localRotation = Quaternion.Lerp(
+				pivots[i].localRotation,
+				Quaternion.AngleAxis(openAngle[i], rotationAxis),
+				openSpeed * Time.deltaTime);
+		}
     }
 
-    public void CloseDoor()
+    public virtual void CloseDoors()
     {
-        doorTransform.eulerAngles = Vector3.Lerp(doorTransform.eulerAngles, startEuler, openSpeed * Time.deltaTime);
+        for (int i = 0; i < pivots.Length; i++)
+        {
+			pivots[i].localRotation = Quaternion.Lerp(
+				pivots[i].localRotation,
+				Quaternion.AngleAxis(0, rotationAxis),
+				openSpeed * Time.deltaTime);
+		}     
     }
 
-	public void Move(Vector3 direction) { }
+	public virtual void Move(Vector3 direction) { }
 
-	public void Use()
+	public virtual void Use()
 	{
 		isOpen = !isOpen;
 	}

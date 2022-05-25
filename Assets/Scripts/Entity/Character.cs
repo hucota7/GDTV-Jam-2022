@@ -13,7 +13,8 @@ public class Character : Entity, IMoveable, IUseable
 	[SerializeField, ReadOnly] Vector3 velocity = Vector3.zero;
 
 	public ThoughtBubble ThoughtBubble { get; private set; }
-	public bool CanMove { get; protected set; }
+	public bool CanMove { get; protected set; } = true;
+	protected float unblockMoveTime = -1;
 
 	float animSpeed = 0;
 
@@ -38,28 +39,51 @@ public class Character : Entity, IMoveable, IUseable
 	public virtual void Update()
 	{
 		animator.SetFloat("Speed", animSpeed, 0.1f, Time.deltaTime);
+
+		if (unblockMoveTime != -1)
+		{
+			if (unblockMoveTime - Time.time <= 0)
+			{
+				UnblockMovement();
+			}
+		}
 	}
 
 	public override void Die()
 	{
-		base.Die();
+		if (TryGetComponent(out Ragdoll ragdoll))
+		{
+			ragdoll.ActivateRagdoll();
+			StopAllCoroutines();
+			CanMove = false;
+			velocity = Vector3.zero;
+			enabled = false;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
 	}
 
 	public virtual void Move(Vector3 direction)
 	{
-		if (CanMove == false) return;
-
-		velocity = Vector3.MoveTowards(velocity, direction * maxSpeed, Time.deltaTime * accel);
-		cc.Move(velocity * Time.deltaTime);
-		//animator.SetFloat("Speed", velocity.magnitude);
-		animSpeed = velocity.magnitude;
-		if (direction.magnitude > 0.1f)
-			Look(direction);
+		if (CanMove)
+		{
+			velocity = Vector3.MoveTowards(velocity, direction * maxSpeed, Time.deltaTime * accel);
+			cc.Move(velocity * Time.deltaTime);
+			//animator.SetFloat("Speed", velocity.magnitude);
+			animSpeed = velocity.magnitude;
+			if (direction.magnitude > 0.1f)
+				Look(direction);
+		}
 	}
 
 	public virtual void Look(Vector3 direction, float rate = 720)
 	{
-		transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * rate);
+		if (CanMove)
+		{
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * rate);
+		}
 	}
 
 	public virtual void Use() { }
@@ -69,5 +93,35 @@ public class Character : Entity, IMoveable, IUseable
 		velocity = Vector3.zero;
 		animSpeed = 0;
 		//animator.SetFloat("Speed", 0);
+	}
+
+	public virtual void BlockMovement(float duration)
+	{
+		if (unblockMoveTime == -1 || Time.time - unblockMoveTime < duration)
+		{
+			CanMove = false;
+			unblockMoveTime = Time.time + duration;
+		}
+	}
+
+	public virtual void UnblockMovement()
+	{
+		CanMove = true;
+		unblockMoveTime = -1;
+	}
+
+	public virtual void OnPossessed()
+	{
+		Stop();
+		BlockMovement(3.5f);
+		animator.SetTrigger("Possessed");
+	}
+
+	public virtual void OnUnpossessed()
+	{
+		Stop();
+		BlockMovement(3.5f);
+		ThoughtBubble.Question();
+		animator.SetTrigger("Unpossessed");
 	}
 }
