@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4118703039145739287}
   - component: {fileID: 1795317913}
   - component: {fileID: 1795317910}
-  - component: {fileID: 6938772798871639446}
+  - component: {fileID: 4556535737651420145}
   m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
@@ -123,10 +123,7 @@ MonoBehaviour:
   - -90
   openSpeed: 4
   requiresKey: 0
-<<<<<<< HEAD
-=======
   lockVisual: {fileID: 6709604874607019123}
->>>>>>> 70a04fd5bce6815c6c6dd5d7d7fa11974e1634b9
   isOpen: 0
 --- !u!135 &1795317913
 SphereCollider:
@@ -154,18 +151,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 4118703039145739287}
-<<<<<<< HEAD
---- !u!114 &6938772798871639446
+--- !u!114 &4556535737651420145
 MonoBehaviour:
-=======
---- !u!1 &6709604874607019123
-GameObject:
->>>>>>> 70a04fd5bce6815c6c6dd5d7d7fa11974e1634b9
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 5860448702186456480}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -173,7 +164,12 @@ GameObject:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 4118703039145739287}
-=======
+--- !u!1 &6709604874607019123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5099666366602461818}
@@ -201,7 +197,6 @@ Transform:
   m_Father: {fileID: 2061037524331628728}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> 70a04fd5bce6815c6c6dd5d7d7fa11974e1634b9
 --- !u!1 &6923232662081830302
 GameObject:
   m_ObjectHideFlags: 0
