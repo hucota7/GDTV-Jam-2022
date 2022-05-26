@@ -67,6 +67,7 @@ MonoBehaviour:
   - {fileID: 3922255230969260322}
   uiPoint: {fileID: 4838859983803529983}
   pivot: {fileID: 6879032270155366702}
+  rotationSequence: []
 --- !u!65 &1823193539772119754
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -288,10 +289,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1877645749075082756, guid: c0cd2276d23c730439f3f237768e1d36, type: 3}
-  - {fileID: -6899650069380627838, guid: c0cd2276d23c730439f3f237768e1d36, type: 3}
-  - {fileID: -6179329538730508563, guid: c0cd2276d23c730439f3f237768e1d36, type: 3}
-  - {fileID: 5979733468668232055, guid: c0cd2276d23c730439f3f237768e1d36, type: 3}
+  - {fileID: 2100000, guid: 0b586fad3538a5f478bff82b632ad2fb, type: 2}
+  - {fileID: 2100000, guid: f008e1f106586ff46871364c6d7c6345, type: 2}
+  - {fileID: 2100000, guid: a327354d39dca36458e73221f309d68b, type: 2}
+  - {fileID: 2100000, guid: b9a7a384fa20b6d468f04ccf43c16474, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

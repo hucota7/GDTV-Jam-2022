@@ -3,7 +3,27 @@ guid: c0cd2276d23c730439f3f237768e1d36
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CameraBody
+    second: {fileID: 2100000, guid: 0b586fad3538a5f478bff82b632ad2fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CameraCylinder_
+    second: {fileID: 2100000, guid: f008e1f106586ff46871364c6d7c6345, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CameraLense
+    second: {fileID: 2100000, guid: a327354d39dca36458e73221f309d68b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StatusLight
+    second: {fileID: 2100000, guid: b9a7a384fa20b6d468f04ccf43c16474, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
