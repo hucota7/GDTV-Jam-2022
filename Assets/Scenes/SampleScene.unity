@@ -483,6 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragLinkPoint: {fileID: 382674612883678592}
   dragLinkPointCollider: {fileID: 382674612883678593}
+  entity: {fileID: 382674612883678603}
 --- !u!114 &382674612883678603 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9009621681259075950, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
