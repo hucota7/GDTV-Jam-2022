@@ -10,7 +10,8 @@ public class Character : Entity, IMoveable, IUseable
 
 	[SerializeField] private float maxSpeed;
 	[SerializeField] private float accel;
-	[SerializeField, ReadOnly] Vector3 velocity = Vector3.zero;
+	[SerializeField, ReadOnly] private Vector3 velocity = Vector3.zero;
+	[field: SerializeField] public bool IsDead { get; private set; } = false;
 
 	public ThoughtBubble ThoughtBubble { get; private set; }
 	public bool CanMove { get; protected set; } = true;
@@ -31,6 +32,12 @@ public class Character : Entity, IMoveable, IUseable
 
 	public override void Start()
 	{
+		if (IsDead)
+		{
+			Die();
+			return;
+		}
+
 		base.Start();
 		ThoughtBubble = Instantiate(InterfaceManager.Instance.thoughtBubblePrefab, InterfaceManager.Instance.worldCanvas.transform);
 		ThoughtBubble.Init(uiPoint);
@@ -53,6 +60,8 @@ public class Character : Entity, IMoveable, IUseable
 	{
 		if (TryGetComponent(out Ragdoll ragdoll))
 		{
+			IsDead = true;
+			CC.enabled = false;
 			ragdoll.ActivateRagdoll();
 			StopAllCoroutines();
 			CanMove = false;

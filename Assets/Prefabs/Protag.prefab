@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 7271832221522474184}
   - component: {fileID: 8240870354538680173}
   - component: {fileID: 4931138323635905001}
-  - component: {fileID: 4435333587533413438}
   - component: {fileID: -1425609132975528322}
   - component: {fileID: 1243128070398795585}
   - component: {fileID: 8490213447319520799}
@@ -109,20 +108,7 @@ MonoBehaviour:
   maxSpeed: 2.5
   accel: 8
   velocity: {x: 0, y: 0, z: 0}
---- !u!114 &4435333587533413438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7271832221522474182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33c40d55c9c3b884f86090364a4a8863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MaxValue>k__BackingField: 100
-  <Value>k__BackingField: 100
+  <IsDead>k__BackingField: 0
 --- !u!114 &-1425609132975528322
 MonoBehaviour:
   m_ObjectHideFlags: 0

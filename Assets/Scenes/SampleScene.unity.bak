@@ -5766,12 +5766,16 @@ PrefabInstance:
       value: Rat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+<<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 3a34076ee92740141855a7a1b37b108f, type: 3}
 --- !u!1 &1277940684 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3773535884105787783, guid: fd1f3600c6f1c614489766a287449e35, type: 3}
   m_PrefabInstance: {fileID: 1500058526}
   m_PrefabAsset: {fileID: 0}
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: 17a69669680946340b8a8ef18cd1a8f7, type: 3}
+>>>>>>> 70a04fd5bce6815c6c6dd5d7d7fa11974e1634b9
 --- !u!4 &1303352384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6002376528543859413, guid: 43379bf511329f1439b0ddfe63a779b6, type: 3}

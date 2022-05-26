@@ -13,9 +13,12 @@ public class ThoughtBubble : MonoBehaviour
     public Image thoughtImage;
     public Vector3 offset = new Vector3(0, -0.5f, 0);
 
+	bool hasInit = false;
+
     public void Init(Transform target)
     {
         this.target = target;
+		hasInit = true;
     }
 
     public void PlayThought(string stateName, Color color, float transitionDuration = 0.1f)
@@ -41,7 +44,16 @@ public class ThoughtBubble : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = target.position + offset;
-        transform.forward = Camera.main.transform.forward;
+		if (!hasInit) return;
+
+		if (target)
+		{
+			transform.position = target.position + offset;
+			transform.forward = Camera.main.transform.forward;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
     }
 }
