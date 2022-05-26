@@ -9,13 +9,19 @@ public class Door : Entity, IMoveable, IUseable
 	public Vector3 rotationAxis = Vector3.up; //The axis in local space around which the door rotates
 	public float[] openAngle; //The angle at which the door is fully open
     public float openSpeed = 4f; //Speed at which the door opens (and closes).
+
     public bool requiresKey = false; //Does this door require a key?
-
-
+	public GameObject lockVisual;
 
 	[SerializeField] bool isOpen = false;
 
-	private void Update()
+    public override void Start()
+    {
+		base.Start();
+		lockVisual.SetActive(requiresKey);
+    }
+
+    private void Update()
 	{
 		if (isOpen)
 			OpenDoors();
@@ -49,6 +55,9 @@ public class Door : Entity, IMoveable, IUseable
 
 	public virtual void Use()
 	{
-		isOpen = !isOpen;
+		if (!requiresKey)
+		{
+			isOpen = !isOpen;
+		}
 	}
 }
