@@ -49,6 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 9192540525300593361}
+  OnPossess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnpossess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &9192540525300593361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +70,7 @@ MonoBehaviour:
   renderers:
   - {fileID: 1849020509144094217}
   uiPoint: {fileID: 4231796459847289801}
-  isOn: 0
+  isOn: 1
   ceilingLight: {fileID: 1765990184654322405}
 --- !u!65 &4962699573436083518
 BoxCollider:
