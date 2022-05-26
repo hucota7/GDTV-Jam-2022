@@ -42,6 +42,8 @@ public class Guard : Character
 
 	IEnumerator FollowRoute()
 	{
+		if (Route == null) yield break;
+
 		IEnumerator route = Route.Process(this);
 		while (Route)
 		{
