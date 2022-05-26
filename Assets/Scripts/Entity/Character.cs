@@ -79,7 +79,7 @@ public class Character : Entity, IMoveable, IUseable
 		if (CanMove)
 		{
 			velocity = Vector3.MoveTowards(velocity, direction * maxSpeed, Time.deltaTime * accel);
-			cc.Move(velocity * Time.deltaTime);
+			cc.Move(velocity * Time.deltaTime + Vector3.down);
 			//animator.SetFloat("Speed", velocity.magnitude);
 			animSpeed = velocity.magnitude;
 			if (direction.magnitude > 0.1f)
