@@ -395,6 +395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 5775041225122757726, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: be4027b4a48a9d246834329546e19832, type: 2}
     - target: {fileID: 7698156047879522624, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
       propertyPath: m_RootOrder
       value: 2

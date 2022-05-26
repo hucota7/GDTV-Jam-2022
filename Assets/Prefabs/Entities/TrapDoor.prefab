@@ -348,6 +348,8 @@ GameObject:
   - component: {fileID: 9005243693258947736}
   - component: {fileID: 7849618441428740037}
   - component: {fileID: 2067527309645930311}
+  - component: {fileID: 5617677711474103038}
+  - component: {fileID: 643698532512359253}
   m_Layer: 9
   m_Name: Hole
   m_TagString: Untagged
@@ -395,6 +397,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c47ff19334b5b141907ec3ea74c6c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5617677711474103038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330360969208320993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &643698532512359253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330360969208320993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 1.5, y: 0.1, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7508199129558662153
 GameObject:
   m_ObjectHideFlags: 0

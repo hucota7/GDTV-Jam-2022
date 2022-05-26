@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class Possessable : MonoBehaviour, IPossessable
 {
 	[SerializeField] protected Entity entity;
+	public UnityEvent OnPossess, OnUnpossess;
 
 	public bool IsPossessed { get; private set; }
 
@@ -13,6 +16,7 @@ public class Possessable : MonoBehaviour, IPossessable
 
 	public virtual void Possess(IPossessable previouslyPossessed)
 	{
+		OnPossess.Invoke();
 		IsPossessed = true;
 		entity.SetOutline();
 		//AudioManager.Play("PossessionSFX");
@@ -21,6 +25,7 @@ public class Possessable : MonoBehaviour, IPossessable
 
 	public virtual void Unpossess(IPossessable newlyPossessed)
 	{
+		OnUnpossess.Invoke();
 		IsPossessed = false;
 		entity.ClearOutline();
 		//AudioManager.Play("UnpossessionSFX");
