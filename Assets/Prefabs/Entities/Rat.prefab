@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5266546959178910381}
   - {fileID: 3066096478104733151}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -88,13 +89,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderers:
   - {fileID: 3120335592494655834}
-  uiPoint: {fileID: 0}
+  uiPoint: {fileID: 5266546959178910381}
   cc: {fileID: 4153950465298279555}
   animator: {fileID: 7318632470439447507}
   maxSpeed: 3.5
   accel: 20
   velocity: {x: 0, y: 0, z: 0}
   <IsDead>k__BackingField: 0
+  squeeks:
+  - {fileID: 8300000, guid: cdf3c6a332133a54c887bc81457a8c98, type: 3}
+  - {fileID: 8300000, guid: 576dfbd7ea637904e89f11376ad38d63, type: 3}
+  - {fileID: 8300000, guid: 66b06e916d8abe142999a0f75d7b2fc3, type: 3}
+  - {fileID: 8300000, guid: 19641d799f5eaf943a291dfd6b36a6fc, type: 3}
 --- !u!114 &6023485523187958233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +114,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 6143862265270539314}
+  OnPossess:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6143862265270539314}
+        m_TargetAssemblyTypeName: Rat, Assembly-CSharp
+        m_MethodName: Squeek
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnUnpossess:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6143862265270539314}
+        m_TargetAssemblyTypeName: Rat, Assembly-CSharp
+        m_MethodName: Squeek
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &6918172923596924899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5266546959178910381}
+  m_Layer: 6
+  m_Name: UI Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5266546959178910381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918172923596924899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5702699299426178651}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3244368533877891636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,7 +184,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b8cb40d57224a184e813570e698f5ad2, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b8cb40d57224a184e813570e698f5ad2, type: 3}
       propertyPath: m_LocalPosition.x
