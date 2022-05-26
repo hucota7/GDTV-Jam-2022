@@ -10,6 +10,7 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 	[SerializeField] private Transform draggingPoint;
 	[Space]
 	[SerializeField] private float maxSpeed;
+	[SerializeField] private float speedModifier = 1f;
 	[SerializeField] private float accel;
 	[SerializeField, ReadOnly] private Vector3 velocity = Vector3.zero;
 	[field: SerializeField] public bool IsDead { get; private set; } = false;
@@ -86,7 +87,7 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 	{
 		if (CanMove)
 		{
-			velocity = Vector3.MoveTowards(velocity, direction * maxSpeed, Time.deltaTime * accel);
+			velocity = Vector3.MoveTowards(velocity, direction * maxSpeed * speedModifier, Time.deltaTime * accel);
 			cc.Move(velocity * Time.deltaTime + Vector3.down);
 			//animator.SetFloat("Speed", velocity.magnitude);
 			animSpeed = velocity.magnitude;
@@ -142,14 +143,15 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 		animator.SetTrigger("Unpossessed");
 	}
 
+
 	public virtual void StartDragging(IDraggable dragged) {
-		maxSpeed /= 2;
+		speedModifier = 0.5f;
 		animator.SetBool("Dragging", true);
 		currentDraggable = dragged;
 	}
 
 	public virtual void StopDragging(IDraggable dragged) {
-		maxSpeed *= 2;
+		speedModifier = 1f;
 		animator.SetBool("Dragging", false);
 		currentDraggable = null;
 	}
