@@ -12,4 +12,5 @@ public static class Keymap
 	public static KeyCode Down	=> LukeMode ? KeyCode.H : KeyCode.S;
 	public static KeyCode Possess => LukeMode ? KeyCode.Space : KeyCode.Space;
 	public static KeyCode Use	=> LukeMode ? KeyCode.A : KeyCode.E;
+	public static KeyCode Interact	=> LukeMode ? KeyCode.Z : KeyCode.F;
 }

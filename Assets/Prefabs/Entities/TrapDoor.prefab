@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7898018394805804207}
   - component: {fileID: 8091774228908152327}
   - component: {fileID: 3619160202604787211}
+  - component: {fileID: -1530647139050556715}
   m_Layer: 6
   m_Name: TrapDoor
   m_TagString: Untagged
@@ -123,6 +124,19 @@ MonoBehaviour:
   requiresKey: 0
   isOpen: 0
   hole: {fileID: 2067527309645930311}
+--- !u!114 &-1530647139050556715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164647686471471097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7512b5d0debf66141ab7c976be5a3c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 3619160202604787211}
 --- !u!1 &2440344285679675977
 GameObject:
   m_ObjectHideFlags: 0
