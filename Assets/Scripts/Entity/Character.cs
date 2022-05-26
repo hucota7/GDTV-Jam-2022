@@ -151,7 +151,7 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 	public virtual void StopDragging(IDraggable dragged) {
 		maxSpeed *= 2;
 		animator.SetBool("Dragging", false);
-		currentDraggable = dragged;
+		currentDraggable = null;
 	}
 
 	public Transform GetDragLinkPoint() {
