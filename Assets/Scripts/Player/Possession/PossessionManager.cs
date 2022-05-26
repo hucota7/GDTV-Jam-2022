@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+[DefaultExecutionOrder(-1)]
 public class PossessionManager : MonoBehaviour
 {
+	public static PossessionManager Instance { get; private set; }
+
 	public Action<IPossessable> InitialPossession;
 	public Action<IPossessable> Possessed;
 
@@ -20,6 +23,18 @@ public class PossessionManager : MonoBehaviour
 	Possessable nearPossessable = null;
 
 	public IPossessable CurrentPossessed { get; private set; }
+
+	private void Awake()
+	{
+		if (Instance)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			Instance = this;
+		}
+	}
 
 	private void Start()
 	{

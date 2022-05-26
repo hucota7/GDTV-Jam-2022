@@ -7,7 +7,8 @@ public class Outline : MonoBehaviour
 	static Material _outlineMaterial;
 	Camera TempCam;
 	float[] kernel;
-	void Start()
+
+	void Awake()
 	{
 		_outlineMaterial = new Material(outlineShader);
 		TempCam = new GameObject().AddComponent<Camera>();

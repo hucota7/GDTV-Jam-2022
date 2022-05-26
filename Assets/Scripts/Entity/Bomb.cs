@@ -12,8 +12,7 @@ public class Bomb : Entity, IMoveable, IUseable
     public Color[] startColors;
 	public bool bombLit = false;
     public bool explosionTriggered = false;
-    [Space]
-    [SerializeField] public PossessionManager possessionManager;
+
     IPossessable genericPossessable;
 
 	float timeLit = -1;
@@ -98,8 +97,8 @@ public class Bomb : Entity, IMoveable, IUseable
         explosionTriggered = true;
         Instantiate(explosionObject, transform.position, Quaternion.identity);
         
-        if (possessionManager.CurrentPossessed == (IPossessable)genericPossessable)
-            possessionManager.Possess();
+        if (PossessionManager.Instance.CurrentPossessed == (IPossessable)genericPossessable)
+			PossessionManager.Instance.Possess();
         
         base.Die();
     }

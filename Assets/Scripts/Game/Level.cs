@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-
+	public Transform startPoint;
+	public Goal goal;
 }
