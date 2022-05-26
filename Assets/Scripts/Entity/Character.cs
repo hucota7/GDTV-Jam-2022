@@ -154,6 +154,8 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 		speedModifier = 1f;
 		animator.SetBool("Dragging", false);
 		currentDraggable = null;
+		dragged.GetEntity().transform.position = GetDragLinkPoint().position;
+		
 	}
 
 	public Transform GetDragLinkPoint() {
