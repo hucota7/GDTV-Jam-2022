@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CeilingLamp : Entity, IMoveable, IUseable      
 {
-    public bool isOn;
+    public bool isOn = true;
     public Light ceilingLight;
 
     public void Move(Vector3 direction)
