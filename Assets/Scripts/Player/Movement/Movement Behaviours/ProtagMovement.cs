@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ProtagMovement : MonoBehaviour, IMoveable {
+public class ProtagMovement : IMoveableConcreteImplementation {
 	[field: SerializeField] public CharacterController CC { get; private set; }
 	[SerializeField] private Entity entity;
 	[SerializeField] private Energy energy;
@@ -12,7 +12,7 @@ public class ProtagMovement : MonoBehaviour, IMoveable {
 
 	private Vector3 velocity;
 
-	public void Move(Vector3 direction)
+	public override void Move(Vector3 direction)
 	{
 		velocity = Vector3.MoveTowards(velocity, direction * maxSpeed, Time.deltaTime * accel);
 		

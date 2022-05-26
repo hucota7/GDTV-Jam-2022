@@ -5,6 +5,7 @@ public class InteractionManager : MonoBehaviour
 	[SerializeField] private GetInteractableBehaviourConcreteImplementation getInteractableBehaviour;
 
 	private Entity currentInteractor;
+	private IAdvancedInteractable previousAdvancedInteractable;
 
 	private void Awake()
 	{
@@ -12,10 +13,19 @@ public class InteractionManager : MonoBehaviour
 		PossessionManager.Instance.Possessed += SetInteractor;
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		if (Input.GetKeyDown(Keymap.Interact))
 			Interact(currentInteractor);
+
+		if (previousAdvancedInteractable == null)
+			return;
+
+		if (Input.GetKey(Keymap.Interact))
+			InteractionHeld(currentInteractor);
+
+		if (Input.GetKeyUp(Keymap.Interact))
+			InteractionReleased(currentInteractor);
 	}
 
 	public void SetInteractor(IPossessable interactor) => currentInteractor = interactor.GetEntity();
@@ -28,5 +38,17 @@ public class InteractionManager : MonoBehaviour
 			return;
 
 		interactable.TryInteract(interactor);
+
+		previousAdvancedInteractable = (interactable is IAdvancedInteractable) ? (IAdvancedInteractable)interactable : null;
+
+		Debug.Log((interactable is IAdvancedInteractable));
+	}
+
+	private void InteractionHeld(Entity interactor) {
+		previousAdvancedInteractable.InteractionHeld(interactor);
+	}
+
+	private void InteractionReleased(Entity interactor) {
+		previousAdvancedInteractable.InteractionRealeased(interactor);
 	}
 }

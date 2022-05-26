@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostMovement : MonoBehaviour, IMoveable
+public class GhostMovement : IMoveableConcreteImplementation
 {
 	[field: SerializeField] public CharacterController CC { get; private set; }
 	[Space]
@@ -11,7 +9,7 @@ public class GhostMovement : MonoBehaviour, IMoveable
 
 	[HideInInspector] public Vector3 velocity;
 
-	public void Move(Vector3 direction)
+	public override void Move(Vector3 direction)
 	{
 		velocity = Vector3.MoveTowards(velocity, direction * maxSpeed, Time.deltaTime * accel);
 		CC.Move(velocity * Time.deltaTime);

@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : Entity, IMoveable, IUseable
-{
+public class Character : Entity, IMoveable, IUseable, IDragging {
 	public CharacterController CC => cc;
 	[SerializeField] private CharacterController cc;
 	[SerializeField] private Animator animator;
-
+	[Space]
+	[SerializeField] private Transform draggingPoint;
+	[Space]
 	[SerializeField] private float maxSpeed;
 	[SerializeField] private float accel;
 	[SerializeField, ReadOnly] private Vector3 velocity = Vector3.zero;
@@ -18,6 +19,8 @@ public class Character : Entity, IMoveable, IUseable
 	protected float unblockMoveTime = -1;
 
 	float animSpeed = 0;
+
+	private IDraggable currentDraggable;
 
 	public override void Reset()
 	{
@@ -54,6 +57,11 @@ public class Character : Entity, IMoveable, IUseable
 				UnblockMovement();
 			}
 		}
+	}
+
+	public virtual void FixedUpdate() {
+		if (currentDraggable != null)
+			currentDraggable.Drag(this);
 	}
 
 	public override void Die()
@@ -132,5 +140,21 @@ public class Character : Entity, IMoveable, IUseable
 		BlockMovement(3.5f);
 		ThoughtBubble.Question();
 		animator.SetTrigger("Unpossessed");
+	}
+
+	public virtual void StartDragging(IDraggable dragged) {
+		maxSpeed /= 2;
+		animator.SetBool("Dragging", true);
+		currentDraggable = dragged;
+	}
+
+	public virtual void StopDragging(IDraggable dragged) {
+		maxSpeed *= 2;
+		animator.SetBool("Dragging", false);
+		currentDraggable = dragged;
+	}
+
+	public Transform GetDragLinkPoint() {
+		return draggingPoint;
 	}
 }
