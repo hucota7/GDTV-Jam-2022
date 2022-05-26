@@ -19,4 +19,9 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public static void Goal()
+	{
+		// if not last level then go to next else show end screen
+		Debug.Log("Goal!");
+	}
 }

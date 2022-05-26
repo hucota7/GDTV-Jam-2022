@@ -26,10 +26,13 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = target.position - offset * currentZoom;
-        transform.LookAt(target.position + Vector3.up * pitch);
+		if (target)
+		{
+			transform.position = target.position - offset * currentZoom;
+			transform.LookAt(target.position + Vector3.up * pitch);
 
-        transform.RotateAround(target.position, Vector3.up, currentYaw);
+			transform.RotateAround(target.position, Vector3.up, currentYaw);
+		}
     }
 
     public void LockCursor() => Cursor.lockState = CursorLockMode.Locked;
