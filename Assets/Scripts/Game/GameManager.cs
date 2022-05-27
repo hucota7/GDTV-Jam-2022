@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,6 +44,12 @@ public class GameManager : MonoBehaviour
 		Instance.NextLevel();
 	}
 
+	public void StartGame()
+    {
+		SpawnPlayer();
+		LoadLevel();
+    }
+
 	public static void GameOver()
     {
 		InterfaceManager.Instance.DisplayGameOver();
@@ -50,6 +57,11 @@ public class GameManager : MonoBehaviour
 	public static void CompleteGame()
     {
 
+    }
+
+	public static void ReloadGame()
+    {
+		SceneManager.LoadScene("Game");
     }
 
 
@@ -72,8 +84,8 @@ public class GameManager : MonoBehaviour
     {
 		if (currentLevel) Destroy(currentLevel.gameObject);
 		currentLevel = Instantiate(levels[CurrentLevelIndex], _world);
-		SpawnPlayer();
-    }
+		SetPlayerToSpawn(currentLevel.startPoint);
+	}
 
 	public void SpawnPlayer()
     {
@@ -82,7 +94,7 @@ public class GameManager : MonoBehaviour
 
 	public void SetPlayerToSpawn(Transform spawnPoint)
     {
-
+		//also use rotation
     }
 	
 
