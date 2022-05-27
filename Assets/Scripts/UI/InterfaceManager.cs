@@ -8,7 +8,7 @@ public class InterfaceManager : MonoBehaviour
 	public Canvas mainCanvas;
 	public Canvas worldCanvas;
 
-	public UIScreen gameOverScreen;
+	public UIScreen gameOverScreen, creditsScreen;
 
 	[Header("Prefabs")]
 	public EnergyBarUI energyBarPrefab;
@@ -44,4 +44,9 @@ public class InterfaceManager : MonoBehaviour
 		UIScreen.Focus(gameOverScreen);
 		StartCoroutine(DoFade(gameOverScreen, 1));
     }
+	public void DisplayCreditsScreen()
+	{
+		UIScreen.Focus(creditsScreen);
+		StartCoroutine(DoFade(creditsScreen, 1));
+	}
 }
