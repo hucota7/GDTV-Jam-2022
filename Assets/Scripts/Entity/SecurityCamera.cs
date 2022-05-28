@@ -6,6 +6,7 @@ using Helpers.Array;
 
 public class SecurityCamera : Entity
 {
+	[SerializeField] bool isTurnedOn = true;
     public Transform pivot;
 	// x is yaw degrees, y is rotation duration, z is seconds to delay before moving on
 	[SerializeField, VectorLabels("Yaw", "Time", "Delay")] Vector3[] rotationSequence;
@@ -29,8 +30,13 @@ public class SecurityCamera : Entity
 
 	void RotateCamera()
 	{
-		yaw = curve.Evaluate(Time.time);
-		pivot.localRotation = Quaternion.AngleAxis(yaw, Vector3.up);
+		if (isTurnedOn)
+		{
+			//make sure cone is visible
+			yaw = curve.Evaluate(Time.time);
+			pivot.localRotation = Quaternion.AngleAxis(yaw, Vector3.up);
+		}
+		//needs to be turned off with the possession interaction thing
 	}
 
 #if UNITY_EDITOR
