@@ -112,23 +112,34 @@ public class PossessionManager : MonoBehaviour
 		{
 			IPossessable near = possessionBehaviour.GetPossessable(new PossessionBehaviourContext() { currentPossessed = CurrentPossessed });
 
+			// thing is out of range
 			if (near == null && nearPossessable != null)
 			{
-				nearPossessable.GetEntity().ClearOutline();
+				Entity entity = nearPossessable.GetEntity();
+				entity.ClearOutline();
+				if (entity.prompt) entity.prompt.ShowPrompt(false);
 				nearPossessable = null;
 			}
 			else if (near is Possessable p)
 			{
+				// found a thing
 				if (nearPossessable == null)
 				{
 					nearPossessable = p;
-					nearPossessable.GetEntity().SetOutline();
+					Entity entity = nearPossessable.GetEntity();
+					entity.SetOutline();
+					if (entity.prompt) entity.prompt.ShowPrompt(true);
 				}
+				// found a closer thing
 				else if (nearPossessable != p)
 				{
-					nearPossessable.GetEntity().ClearOutline();
+					Entity entity = nearPossessable.GetEntity();
+					entity.ClearOutline();
+					if (entity.prompt) entity.prompt.ShowPrompt(false);
 					nearPossessable = p;
-					nearPossessable.GetEntity().SetOutline();
+					entity = nearPossessable.GetEntity();
+					entity.SetOutline();
+					if (entity.prompt) entity.prompt.ShowPrompt(true);
 				}
 			}
 		}
