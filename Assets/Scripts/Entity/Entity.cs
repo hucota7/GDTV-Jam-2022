@@ -8,6 +8,7 @@ public abstract class Entity : MonoBehaviour
 	public int[] rendererLayers { get; private set; } = null;
 	public EnergyBarUI EnergyBar { get; private set; } = null;
 	public Transform uiPoint;
+	[HideInInspector]public KeyPrompt prompt;
 
 	public virtual void Awake()
 	{
@@ -26,6 +27,8 @@ public abstract class Entity : MonoBehaviour
 			EnergyBar.Init(1, 1);
 			EnergyBar.TempPain(this);
 		}
+		prompt = Instantiate(InterfaceManager.Instance.keyPromptPrefab, InterfaceManager.Instance.worldCanvas.transform);
+		prompt.Init(uiPoint);
 	}
 
     public virtual void Reset()

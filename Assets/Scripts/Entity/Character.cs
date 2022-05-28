@@ -13,6 +13,9 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 	[SerializeField] private float speedModifier = 1f;
 	[SerializeField] private float accel;
 	[SerializeField, ReadOnly] private Vector3 velocity = Vector3.zero;
+
+	public Transform keyHolder;
+	[field: SerializeField] public bool HoldingKey { get; private set; } = false;
 	[field: SerializeField] public bool IsDead { get; private set; } = false;
 
 	public ThoughtBubble ThoughtBubble { get; private set; }
@@ -82,6 +85,12 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 			Destroy(gameObject);
 		}
 	}
+
+	public virtual void PickupKey(Key key)
+    {
+		Debug.Log($"{gameObject.name} picked up a key!");
+
+    }
 
 	public virtual void Move(Vector3 direction)
 	{

@@ -708,6 +708,7 @@ MonoBehaviour:
   creditsScreen: {fileID: 1310051728656412650}
   energyBarPrefab: {fileID: 1036016054143013604, guid: 3ef1bc3111eb8ff4ea602ce2265301d8, type: 3}
   thoughtBubblePrefab: {fileID: -7682510245749678582, guid: dcef0ff2c9afaf4498439938c4c083c9, type: 3}
+  keyPromptPrefab: {fileID: 7566148344323373729, guid: f0909fac79123f54889f8e8d68180062, type: 3}
 --- !u!1 &81487353922026636
 GameObject:
   m_ObjectHideFlags: 0

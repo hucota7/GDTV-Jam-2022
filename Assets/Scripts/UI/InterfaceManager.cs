@@ -13,6 +13,7 @@ public class InterfaceManager : MonoBehaviour
 	[Header("Prefabs")]
 	public EnergyBarUI energyBarPrefab;
 	public ThoughtBubble thoughtBubblePrefab;
+	public KeyPrompt keyPromptPrefab;
 	public static InterfaceManager Instance { get; private set; }
 
 	private void Awake()
