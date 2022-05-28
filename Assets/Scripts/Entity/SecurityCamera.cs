@@ -28,7 +28,7 @@ public class SecurityCamera : Entity
 	{
 		if (isTurnedOn)
 		{
-		
+		//play beep occasionally, or just use it as an interact sound i.e. played when you cam toggle on/off
 			RotateCamera();
 			theViewCone.GetComponent<MeshRenderer>().enabled = true;
 		}
