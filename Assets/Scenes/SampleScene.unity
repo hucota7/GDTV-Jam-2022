@@ -196,6 +196,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 928c19ab8eb56474c8d6de2a081fd708, type: 3}
+--- !u!1 &827245035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6910380181546879739, guid: d7b264047f3b6e748a96e3704f89ee35, type: 3}
+  m_PrefabInstance: {fileID: 1765547237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &827245039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827245035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9785a6de0fcdf514eaad96dec8ab7c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis: {x: 0, y: 1, z: 0}
+  rate: 0.25
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
 --- !u!114 &963194230 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 963194230, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
@@ -290,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8248910557263313070, guid: d7b264047f3b6e748a96e3704f89ee35, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.071
+      value: 0.273
       objectReference: {fileID: 0}
     - target: {fileID: 8248910557263313070, guid: d7b264047f3b6e748a96e3704f89ee35, type: 3}
       propertyPath: m_LocalPosition.z
@@ -322,6 +365,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8248910557263313070, guid: d7b264047f3b6e748a96e3704f89ee35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337020179438205282, guid: d7b264047f3b6e748a96e3704f89ee35, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
