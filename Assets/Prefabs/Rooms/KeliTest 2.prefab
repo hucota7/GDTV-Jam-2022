@@ -617,6 +617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 20850758413744469}
+  - component: {fileID: 4093978049581160477}
   m_Layer: 0
   m_Name: KeliTest 2
   m_TagString: Untagged
@@ -644,6 +645,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4093978049581160477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7998866770413861867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224ccb721c9fc354caff96c40d8eb9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {fileID: 4172029795810760354}
+  goal: {fileID: 6706832765510809709}
 --- !u!1 &8739038157011614622
 GameObject:
   m_ObjectHideFlags: 0
@@ -4898,6 +4913,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7184130533460239233, guid: 5da8f3854684eb54990d61a06570ddb6, type: 3}
   m_PrefabInstance: {fileID: 7373057320277765735}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6706832765510809709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4269738229672384010, guid: 5da8f3854684eb54990d61a06570ddb6, type: 3}
+  m_PrefabInstance: {fileID: 7373057320277765735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07088f09a48d0a64abf1c4ec88ba4fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7408613656280795433
 PrefabInstance:
   m_ObjectHideFlags: 0
