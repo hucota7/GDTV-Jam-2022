@@ -212,7 +212,7 @@ MonoBehaviour:
     - Key: WarningAlertSFX
       Value: {fileID: 8300000, guid: 9e199dea9eba2d14b95fc9c02aa2fafb, type: 3}
     - Key: QuestionSFX
-      Value: {fileID: 8300000, guid: 9e199dea9eba2d14b95fc9c02aa2fafb, type: 3}
+      Value: {fileID: 8300000, guid: 1b6919b032632c74998ab656e5500cfc, type: 3}
   musicBank:
     kvps: []
 --- !u!1 &5945269308777062675
