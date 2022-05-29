@@ -1145,6 +1145,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.000000011175871
       objectReference: {fileID: 0}
+    - target: {fileID: 6488605090281034183, guid: 43379bf511329f1439b0ddfe63a779b6, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 72d281a23d7ecfe4b86083928cf32bb6, type: 2}
     - target: {fileID: 6519696733147205716, guid: 43379bf511329f1439b0ddfe63a779b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

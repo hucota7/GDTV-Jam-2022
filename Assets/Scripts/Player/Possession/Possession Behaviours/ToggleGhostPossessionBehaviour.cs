@@ -18,10 +18,10 @@ public class ToggleGhostPossessionBehaviour : PossessionBehaviourConcreteImpleme
 
 		for (int i = 0; i < possessableObjects.Length; i++) {
 			possessables[i] = possessableObjects[i].GetComponent<IPossessable>();
-			if (possessables[i] == null)
-			{
-				Debug.LogWarning($"{possessableObjects[i]} does not have an IPossessable component");
-			}
+			//if (possessables[i] == null)
+			//{
+			//	Debug.LogWarning($"{possessableObjects[i]} does not have an IPossessable component");
+			//}
 		}
 
 		IPossessable closestPossesable = null;

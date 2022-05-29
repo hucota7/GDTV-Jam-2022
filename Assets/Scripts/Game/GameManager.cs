@@ -108,7 +108,6 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(length);
 		if (currentLevel) Destroy(currentLevel.gameObject);
 		currentLevel = Instantiate(levels[CurrentLevelIndex], _world);
-		
 		playerCollectionObj.SetActive(true);
 		SetPlayerToSpawn(currentLevel.startPoint);
 	}
