@@ -14,14 +14,16 @@ public class InterfaceManager : MonoBehaviour
 	public EnergyBarUI energyBarPrefab;
 	public ThoughtBubble thoughtBubblePrefab;
 	public KeyPrompt keyPromptPrefab;
+	public GameObject playerCollectionPrefab;
 	public static InterfaceManager Instance { get; private set; }
+
+	public CanvasGroup fadeCG;
 
 	private void Awake()
 	{
 		if (Instance == null)
 		{
 			Instance = this;
-			DontDestroyOnLoad(gameObject);
 		}
 		else
 		{
@@ -29,7 +31,48 @@ public class InterfaceManager : MonoBehaviour
 		}
 	}
 
-	public IEnumerator DoFade(UIScreen screen, float speed = 1f)
+	public void LevelTransitionFade(float speed)
+    {
+		StartCoroutine(LevelFade(speed));
+    }
+
+	public void EndGameFade(float speed)
+    {
+		StartCoroutine(EndGameFadeRoutine(speed));
+
+	}
+
+	public IEnumerator EndGameFadeRoutine(float speed)
+    {
+		fadeCG.alpha = 0;
+		while (fadeCG.alpha < 1)
+		{
+			fadeCG.alpha += Time.deltaTime * speed;
+			yield return null;
+		}
+		DisplayCreditsScreen();
+	}
+
+	public IEnumerator LevelFade(float speed = 1f)
+	{		
+		fadeCG.alpha = 0;
+		while (fadeCG.alpha < 1)
+		{
+			fadeCG.alpha += Time.deltaTime * speed;
+			yield return null;
+		}
+		fadeCG.alpha = 1;
+		yield return new WaitForSeconds(1f);
+		while (fadeCG.alpha > 0)
+		{
+			fadeCG.alpha -= Time.deltaTime * speed;
+			yield return null;
+		}
+		fadeCG.alpha = 0;
+	}
+
+
+	public IEnumerator DoFadeUIScreen(UIScreen screen, float speed = 1f)
     {
 		screen.Group.alpha = 0;
 		while (screen.Group.alpha < 1)
@@ -43,11 +86,11 @@ public class InterfaceManager : MonoBehaviour
 	public void DisplayGameOver()
     {
 		UIScreen.Focus(gameOverScreen);
-		StartCoroutine(DoFade(gameOverScreen, 1));
+		StartCoroutine(DoFadeUIScreen(gameOverScreen, 1));
     }
 	public void DisplayCreditsScreen()
 	{
 		UIScreen.Focus(creditsScreen);
-		StartCoroutine(DoFade(creditsScreen, 1));
+		StartCoroutine(DoFadeUIScreen(creditsScreen, 1));
 	}
 }

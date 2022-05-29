@@ -12,6 +12,7 @@ public class Outline : MonoBehaviour
 	{
 		_outlineMaterial = new Material(outlineShader);
 		TempCam = new GameObject().AddComponent<Camera>();
+		TempCam.name = "Outline Camera";
 
 		kernel = GaussianKernel.Calculate(5, 21);
 	}

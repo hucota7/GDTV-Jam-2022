@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField] private Level[] levels;
 
-	// Level
+	private GameObject playerCollectionObj;
 
 	[field: SerializeField, ReadOnly] public int CurrentLevelIndex { get; private set; } = 0;
 	[SerializeField, ReadOnly] private Level currentLevel = null;
@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
 		if (Instance == null)
 		{
 			Instance = this;
-			DontDestroyOnLoad(gameObject);
 		}
 		else
 		{
@@ -39,7 +38,6 @@ public class GameManager : MonoBehaviour
 
     public static void Goal()
 	{
-		// if not last level then go to next else show end screen
 		Debug.Log("Goal!");
 		Instance.NextLevel();
 	}
@@ -56,8 +54,9 @@ public class GameManager : MonoBehaviour
     }
 	public static void CompleteGame()
     {
-
-    }
+		Debug.Log("Completed Game!");
+		InterfaceManager.Instance.EndGameFade(1);
+	}
 
 	public static void ReloadGame()
     {
@@ -76,27 +75,42 @@ public class GameManager : MonoBehaviour
 		else
         {
 			CurrentLevelIndex++;
+			InterfaceManager.Instance.LevelTransitionFade(1);
 			LoadLevel();
 		}
     }
 
 	public void LoadLevel()
     {
-		if (currentLevel) Destroy(currentLevel.gameObject);
-		currentLevel = Instantiate(levels[CurrentLevelIndex], _world);
-		SetPlayerToSpawn(currentLevel.startPoint);
+		StartCoroutine(LoadLevelRoutine(1));
 	}
 
 	public void SpawnPlayer()
     {
-
+		playerCollectionObj = Instantiate(InterfaceManager.Instance.playerCollectionPrefab, World);
+		CameraController.SetTarget(playerCollectionObj.GetComponentInChildren<GhostMovement>().transform);
     }
 
 	public void SetPlayerToSpawn(Transform spawnPoint)
     {
-		//also use rotation
-    }
-	
+		GhostMovement ghostMovement = FindObjectOfType<GhostMovement>();
+		Debug.Assert(ghostMovement != null);
+		ghostMovement.CC.enabled = false;
+		ghostMovement.transform.position = spawnPoint.position + new Vector3(0,0.5f,0);
+		playerCollectionObj.GetComponentInChildren <PossessionManager>().transform.position = spawnPoint.position + new Vector3(0, 0.5f, 0);
+		ghostMovement.CC.enabled = true;
+	}
 
-    #endregion
+	public IEnumerator LoadLevelRoutine(float length)
+    {
+		playerCollectionObj.SetActive(false);
+		yield return new WaitForSeconds(length);
+		if (currentLevel) Destroy(currentLevel.gameObject);
+		currentLevel = Instantiate(levels[CurrentLevelIndex], _world);
+		playerCollectionObj.SetActive(true);
+		SetPlayerToSpawn(currentLevel.startPoint);
+	}
+
+
+	#endregion
 }
