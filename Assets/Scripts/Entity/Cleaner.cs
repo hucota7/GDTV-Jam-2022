@@ -7,7 +7,7 @@ public class Cleaner:Character
 	[field: SerializeField] public PatrolRoute Route { get; private set; }
 	//Possessable possessable;
 
-	bool wasPossessed = false;
+	 //bool wasPossessed = false;
 
 	public override void Awake()
 	{
