@@ -11,6 +11,9 @@ public class DoorInteractable : MonoBehaviour, IInteractable {
 	}
 
 	public bool CanInteract(Entity interactor) {
+		if (interactor is GhostEntity)
+			return false;
+		
 		bool holdingKey = interactor is Character && (interactor as Character).HoldingKey;
 
 		return !doorEntity.requiresKey || holdingKey;

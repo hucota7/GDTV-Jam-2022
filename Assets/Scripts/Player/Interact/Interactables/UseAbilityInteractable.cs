@@ -11,7 +11,7 @@ public class UseAbilityInteractable : MonoBehaviour, IInteractable {
 	}
 
 	public bool CanInteract(Entity interactor) {
-		return true;
+		return !(interactor is GhostEntity);
 	}
 
 	public Entity GetEntity() {
