@@ -31,6 +31,7 @@ public class ViewconeTrigger : MonoBehaviour
         if (other.GetComponentInParent<Entity>(true) is Entity e && e.CompareTag("Player"))
         {
             rend.material = discoveredMat;
+            AudioManager.Play("WarningAlertSFX");
         }
     }
     private void OnTriggerExit(Collider other)
