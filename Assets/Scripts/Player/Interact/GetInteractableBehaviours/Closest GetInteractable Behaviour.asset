@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291bf84826923ce4f8536c691a1b210b, type: 3}
   m_Name: Closest GetInteractable Behaviour
   m_EditorClassIdentifier: 
-  interactRadius: 2
+  interactRadius: 1
   interactableMask:
     serializedVersion: 2
     m_Bits: 64

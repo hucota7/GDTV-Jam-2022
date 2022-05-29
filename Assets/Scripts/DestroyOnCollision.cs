@@ -1,11 +1,10 @@
 using UnityEngine;
 
 public class DestroyOnCollision : MonoBehaviour
-{   
-    private void OnCollisionEnter(Collision collision)
-    {
-		Debug.Log(collision.gameObject);
-		if (collision.transform.GetComponentInParent<Entity>() is Entity e)
+{
+	private void OnTriggerEnter(Collider other) {
+		Debug.Log(other.gameObject);
+		if (other.transform.GetComponentInParent<Entity>() is Entity e)
 		{
 			Debug.Log($"{e.gameObject.name} fell out of the world");
 
