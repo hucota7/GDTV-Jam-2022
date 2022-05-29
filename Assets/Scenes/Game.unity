@@ -417,6 +417,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1310051728656412650, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: onFocused.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310051728656412650, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: onFocused.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310051728656412650, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: onFocused.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 963194230}
+    - target: {fileID: 1310051728656412650, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: onFocused.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310051728656412650, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: onFocused.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UnlockCursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310051728656412650, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: onFocused.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CameraController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310051728656412650, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: onFocused.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2843461219014848408, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1621834325}
+    - target: {fileID: 2843461219014848408, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2843461219014848408, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63b077f3274a98341bf2db3fa01bdde4, type: 3}
 --- !u!1001 &382674612883678591
