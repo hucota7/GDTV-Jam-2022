@@ -88,6 +88,7 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 
 	public virtual void PickupKey(Key key)
     {
+		HoldingKey = true;
 		Debug.Log($"{gameObject.name} picked up a key!");
     }
 
