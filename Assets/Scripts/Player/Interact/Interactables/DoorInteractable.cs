@@ -23,11 +23,14 @@ public class DoorInteractable : MonoBehaviour, IInteractable {
 		return doorEntity;
 	}
 
-	public void Interact(Entity interactor) {
-		doorEntity.requiresKey = false;
+	public void Interact(Entity interactor) 
+	{
+		if (doorEntity.requiresKey)
+		{
+			doorEntity.requiresKey = false;
+			if (interactor is Character)
+				(interactor as Character).RemoveKey();
+		}
 		useable.Use();
-
-		if (interactor is Character)
-			(interactor as Character).RemoveKey();
 	}
 }

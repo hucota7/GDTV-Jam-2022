@@ -7,13 +7,12 @@ using Helpers.Array;
 public class SecurityCamera : Entity, IMoveable ,IUseable
 {
 	[SerializeField] bool isTurnedOn = true;
-	[SerializeField] GameObject theViewCone;
+	[SerializeField] ViewconeTrigger viewConeTrigger;
     public Transform pivot;
 	// x is yaw degrees, y is rotation duration, z is seconds to delay before moving on
 	[SerializeField, VectorLabels("Yaw", "Time", "Delay")] Vector3[] rotationSequence;
 
 	[SerializeField, ReadOnly] AnimationCurve curve;
-
 	float yaw = 0;
 
 	//disable security camera's animation/rotation when posessed? <---
@@ -31,13 +30,19 @@ public class SecurityCamera : Entity, IMoveable ,IUseable
 			//would be nice to play that turn on sound when you turn it on
 			//AudioManager.Play("CamTurnOnSFX");
 			RotateCamera();
-			theViewCone.GetComponent<MeshRenderer>().enabled = true;
+			if (!viewConeTrigger.gameObject.activeInHierarchy)
+			{
+				viewConeTrigger.gameObject.SetActive(true);
+			}
 		}
 		else 
 		{
 			//would be nice to play that turn off sound when you turn it off
 			//AudioManager.Play("CamTurnOffSFX");
-			theViewCone.GetComponent<MeshRenderer>().enabled = false; 
+			if (viewConeTrigger.gameObject.activeInHierarchy)
+			{
+				viewConeTrigger.gameObject.SetActive(false);
+			}
 		}
 	}
 

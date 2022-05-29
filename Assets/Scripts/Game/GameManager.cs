@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(length);
 		if (currentLevel) Destroy(currentLevel.gameObject);
 		currentLevel = Instantiate(levels[CurrentLevelIndex], _world);
+		
 		playerCollectionObj.SetActive(true);
 		SetPlayerToSpawn(currentLevel.startPoint);
 	}

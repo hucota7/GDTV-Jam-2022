@@ -74,7 +74,7 @@ MonoBehaviour:
   uiPoint: {fileID: 4838859983803529983}
   prompt: {fileID: 0}
   isTurnedOn: 1
-  theViewCone: {fileID: 3104858535249916403}
+  viewConeTrigger: {fileID: 8814156334306171679}
   pivot: {fileID: 6879032270155366702}
   rotationSequence: []
   curve:
@@ -475,3 +475,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3613567641014311022, guid: 1e4db8f10d9bc8549a381f4fdcea6f95, type: 3}
+--- !u!114 &8814156334306171679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104858535249916403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bae66b3c15deb44a8490a1b7c78761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 3465045005872566310}
+  discoveredMat: {fileID: 2100000, guid: 9923cb9d16c8bc84e92d08eb033cd5a2, type: 2}
+--- !u!23 &3465045005872566310 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 1e4db8f10d9bc8549a381f4fdcea6f95, type: 3}
+  m_PrefabInstance: {fileID: 2870980659313380514}
+  m_PrefabAsset: {fileID: 0}

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &705129608963134020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2529896234176843831}
+  m_Layer: 0
+  m_Name: KeyHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2529896234176843831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705129608963134020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2160716729291131393}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3192383687061707864
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,11 +134,16 @@ MonoBehaviour:
   - {fileID: 5864165957209948816}
   - {fileID: 4139449480572975896}
   uiPoint: {fileID: 4356194646876446856}
+  prompt: {fileID: 0}
   cc: {fileID: 8240870354538680173}
   animator: {fileID: 1243128070398795585}
+  draggingPoint: {fileID: 2160716729291131393}
   maxSpeed: 2.5
+  speedModifier: 1
   accel: 8
   velocity: {x: 0, y: 0, z: 0}
+  keyHolder: {fileID: 2529896234176843831}
+  <HoldingKey>k__BackingField: 0
   <IsDead>k__BackingField: 0
 --- !u!114 &-1425609132975528322
 MonoBehaviour:
@@ -122,6 +158,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 4931138323635905001}
+  OnPossess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnpossess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &1243128070398795585
 Animator:
   serializedVersion: 4
@@ -434,6 +476,11 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!4 &2160716729291131393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: 232d94871ee270343b426eb33b659c4d, type: 3}
+  m_PrefabInstance: {fileID: 5170146379745910722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2343935732496309414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1781356600409242780, guid: 232d94871ee270343b426eb33b659c4d, type: 3}
