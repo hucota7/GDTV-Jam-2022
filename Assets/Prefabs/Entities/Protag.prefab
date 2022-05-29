@@ -76,6 +76,8 @@ GameObject:
   - component: {fileID: -1425609132975528322}
   - component: {fileID: 1243128070398795585}
   - component: {fileID: 8490213447319520799}
+  - component: {fileID: 1799299832594756815}
+  - component: {fileID: 6227602821432271020}
   m_Layer: 6
   m_Name: Protag
   m_TagString: Player
@@ -198,6 +200,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderRoot: {fileID: 872263519342811325}
   bodyCentre: {fileID: 608582828774370094}
+--- !u!114 &1799299832594756815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271832221522474182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d807a341e463c4daff5353e6b95e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragLinkPoint: {fileID: 9212563859541928634}
+  dragLinkPointCollider: {fileID: 7759342088771365025}
+  entity: {fileID: 4931138323635905001}
+  disconnectDistance: 1.3
+--- !u!114 &6227602821432271020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271832221522474182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608fa6e8dd6f07f4282fe1dd1f9689f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 4931138323635905001}
 --- !u!1001 &5170146379745910722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1188,3 +1219,8 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!4 &9212563859541928634 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4042427859692680568, guid: 232d94871ee270343b426eb33b659c4d, type: 3}
+  m_PrefabInstance: {fileID: 5170146379745910722}
+  m_PrefabAsset: {fileID: 0}
