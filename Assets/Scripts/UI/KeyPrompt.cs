@@ -10,7 +10,7 @@ public class KeyPrompt : MonoBehaviour
     [Space]
     [Header("References & Settings")]
     public string interactKey = "E";
-    public GameObject visual;
+    public GameObject interactVisual, possessVisual;
     public Image keyIcon;
     public TMP_Text keyText;
     public Vector3 offset = new Vector3(0, -0.5f, 0);
@@ -24,10 +24,14 @@ public class KeyPrompt : MonoBehaviour
         keyText.text = interactKey;
     }
 
-    public void ShowPrompt(bool show, string key = "E")
+    public void ShowInteractPrompt(bool show, string key = "E")
     {
         keyText.text = key;
-        visual.SetActive(show);
+        interactVisual.SetActive(show);
+    }
+    public void ShowPossessPrompt(bool show)
+    {
+        possessVisual.SetActive(show);
     }
 
 

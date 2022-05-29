@@ -117,7 +117,7 @@ public class PossessionManager : MonoBehaviour
 			{
 				Entity entity = nearPossessable.GetEntity();
 				entity.ClearOutline();
-				if (entity.prompt) entity.prompt.ShowPrompt(false);
+				if (entity.prompt) entity.prompt.ShowPossessPrompt(false);
 				nearPossessable = null;
 			}
 			else if (near is Possessable p)
@@ -128,18 +128,18 @@ public class PossessionManager : MonoBehaviour
 					nearPossessable = p;
 					Entity entity = nearPossessable.GetEntity();
 					entity.SetOutline();
-					if (entity.prompt) entity.prompt.ShowPrompt(true);
+					if (entity.prompt) entity.prompt.ShowPossessPrompt(true);
 				}
 				// found a closer thing
 				else if (nearPossessable != p)
 				{
 					Entity entity = nearPossessable.GetEntity();
 					entity.ClearOutline();
-					if (entity.prompt) entity.prompt.ShowPrompt(false);
+					if (entity.prompt) entity.prompt.ShowPossessPrompt(false);
 					nearPossessable = p;
 					entity = nearPossessable.GetEntity();
 					entity.SetOutline();
-					if (entity.prompt) entity.prompt.ShowPrompt(true);
+					if (entity.prompt) entity.prompt.ShowPossessPrompt(true);
 				}
 			}
 		}

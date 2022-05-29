@@ -603,7 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 20850758413744469}
-  - component: {fileID: 8456081755549831702}
+  - component: {fileID: 7513335967643111685}
   m_Layer: 0
   m_Name: KeliTest
   m_TagString: Untagged
@@ -631,7 +631,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8456081755549831702
+--- !u!114 &7513335967643111685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
