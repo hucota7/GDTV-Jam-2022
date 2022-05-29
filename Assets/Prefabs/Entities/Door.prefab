@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4118703039145739287}
   - component: {fileID: 1795317913}
   - component: {fileID: 1795317910}
-  - component: {fileID: 4556535737651420145}
+  - component: {fileID: 5145877838554935911}
   m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
@@ -282,6 +282,7 @@ MonoBehaviour:
   - {fileID: 6937099827866938036}
   - {fileID: 5555274265415832017}
   uiPoint: {fileID: 4067785726798296645}
+  prompt: {fileID: 0}
   pivots:
   - {fileID: 3254633518207816830}
   rotationAxis: {x: 0, y: 1, z: 0}
@@ -317,7 +318,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 4118703039145739287}
---- !u!114 &4556535737651420145
+  OnPossess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnpossess:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5145877838554935911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,10 +333,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5860448702186456480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7512b5d0debf66141ab7c976be5a3c19, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cb5c35650e17ac40b6af02400450809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 4118703039145739287}
+  doorEntity: {fileID: 4118703039145739287}
 --- !u!1 &6709604874607019123
 GameObject:
   m_ObjectHideFlags: 0
