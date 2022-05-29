@@ -40,6 +40,8 @@ public class InteractionManager : MonoBehaviour
 		interactable.TryInteract(interactor);
 
 		previousAdvancedInteractable = (interactable is IAdvancedInteractable) ? (IAdvancedInteractable)interactable : null;
+
+		Debug.Log((interactable is IAdvancedInteractable));
 	}
 
 	private void InteractionHeld(Entity interactor) {

@@ -109,9 +109,6 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 	{
 		if (CanMove)
 		{
-			if (currentDraggable != null)
-				direction = -direction;
-
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * rate);
 		}
 	}
@@ -166,6 +163,8 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 		speedModifier = 1f;
 		animator.SetBool("Dragging", false);
 		currentDraggable = null;
+		dragged.GetEntity().transform.position = GetDragLinkPoint().position;
+		
 	}
 
 	public Transform GetDragLinkPoint() {
