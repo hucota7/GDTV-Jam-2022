@@ -213,6 +213,10 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: 9e199dea9eba2d14b95fc9c02aa2fafb, type: 3}
     - Key: QuestionSFX
       Value: {fileID: 8300000, guid: 1b6919b032632c74998ab656e5500cfc, type: 3}
+    - Key: CamTurnOnSFX
+      Value: {fileID: 8300000, guid: f8a4aa8e3dd9e2e429a6f5ec3fddb149, type: 3}
+    - Key: CamTurnOffSFX
+      Value: {fileID: 8300000, guid: d55df27d05bff5b41a374d70bfedcdd2, type: 3}
   musicBank:
     kvps: []
 --- !u!1 &5945269308777062675
