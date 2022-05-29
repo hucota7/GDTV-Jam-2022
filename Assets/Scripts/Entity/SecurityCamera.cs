@@ -4,7 +4,7 @@ using UnityEngine;
 using Helpers.Tuple;
 using Helpers.Array;
 
-public class SecurityCamera : Entity
+public class SecurityCamera : Entity, IMoveable ,IUseable
 {
 	[SerializeField] bool isTurnedOn = true;
 	[SerializeField] GameObject theViewCone;
@@ -28,11 +28,17 @@ public class SecurityCamera : Entity
 	{
 		if (isTurnedOn)
 		{
-		//play beep occasionally, or just use it as an interact sound i.e. played when you cam toggle on/off
+			//would be nice to play that turn on sound when you turn it on
+			//AudioManager.Play("CamTurnOnSFX");
 			RotateCamera();
 			theViewCone.GetComponent<MeshRenderer>().enabled = true;
 		}
-		else { theViewCone.GetComponent<MeshRenderer>().enabled = false; }
+		else 
+		{
+			//would be nice to play that turn off sound when you turn it off
+			//AudioManager.Play("CamTurnOffSFX");
+			theViewCone.GetComponent<MeshRenderer>().enabled = false; 
+		}
 	}
 
 	void RotateCamera()
@@ -93,5 +99,15 @@ public class SecurityCamera : Entity
 			UnityEditor.AnimationUtility.SetKeyRightTangentMode(curve, i, UnityEditor.AnimationUtility.TangentMode.Linear);
 		}
 	}
+
+    public void Move(Vector3 direction)
+    {
+        
+    }
+
+    public void Use()
+    {
+		isTurnedOn = !isTurnedOn;
+    }
 #endif
 }

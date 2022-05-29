@@ -73,7 +73,7 @@ MonoBehaviour:
   - {fileID: 3922255230969260322}
   uiPoint: {fileID: 4838859983803529983}
   prompt: {fileID: 0}
-  isTurnedOn: 0
+  isTurnedOn: 1
   theViewCone: {fileID: 3104858535249916403}
   pivot: {fileID: 6879032270155366702}
   rotationSequence: []
