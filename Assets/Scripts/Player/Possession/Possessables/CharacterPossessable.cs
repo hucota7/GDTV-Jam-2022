@@ -20,6 +20,9 @@ public class CharacterPossessable : Possessable
 
 	public override void Unpossess(IPossessable newlyPossessed)
 	{
+		if (IsGettingDestroyed)
+			return;
+		
 		base.Unpossess(newlyPossessed);
 
 		characterEntity.OnUnpossessed();

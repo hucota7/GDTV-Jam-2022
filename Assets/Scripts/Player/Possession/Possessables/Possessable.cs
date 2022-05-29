@@ -8,6 +8,11 @@ public class Possessable : MonoBehaviour, IPossessable
 	public UnityEvent OnPossess, OnUnpossess;
 
 	public bool IsPossessed { get; private set; }
+	public bool IsGettingDestroyed { get; private set; }
+
+	public void MarkForDestruction() {
+		IsGettingDestroyed = true;
+	}
 
 	public Entity GetEntity()
 	{
@@ -19,8 +24,6 @@ public class Possessable : MonoBehaviour, IPossessable
 		OnPossess.Invoke();
 		IsPossessed = true;
 		entity.SetOutline();
-		//AudioManager.Play("PossessionSFX");
-		//except when "possessing" the ghost
 	}
 
 	public virtual void Unpossess(IPossessable newlyPossessed)
@@ -28,7 +31,5 @@ public class Possessable : MonoBehaviour, IPossessable
 		OnUnpossess.Invoke();
 		IsPossessed = false;
 		entity.ClearOutline();
-		//AudioManager.Play("UnpossessionSFX");
-		//except when "unpossessing" the ghost
 	}
 }

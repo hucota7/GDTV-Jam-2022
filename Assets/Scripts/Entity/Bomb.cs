@@ -97,7 +97,7 @@ public class Bomb : Entity, IMoveable, IUseable
         explosionTriggered = true;
         Instantiate(explosionObject, transform.position, Quaternion.identity);
         
-        if (PossessionManager.Instance.CurrentPossessed == (IPossessable)genericPossessable)
+        if (PossessionManager.Instance.CurrentPossessed == genericPossessable)
 			PossessionManager.Instance.Possess();
         
         base.Die();
