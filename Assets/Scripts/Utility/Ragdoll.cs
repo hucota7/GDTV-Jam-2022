@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ragdoll : MonoBehaviour
-{
+public class Ragdoll : MonoBehaviour {
+	[SerializeField] private Transform colliderRoot;
+	[SerializeField] private Transform bodyCentre;
+
 	private Character _character;
     private Animator _animator;      // reference to animator. It must be deactivated in order to make sure the ragdoll works
 
@@ -11,12 +13,19 @@ public class Ragdoll : MonoBehaviour
     private List<Rigidbody> _ragdollRigidbodies = new List<Rigidbody>();
     private List<Collider> _ragdollColliders = new List<Collider>();
 
-    private void Awake()
+	private Vector3 previousBodyPosition;
+
+	private void Awake()
     {
 		_character = GetComponent<Character>();
         _animator = GetComponent<Animator>();
         GetRagdollReferences();
     }
+
+	public void Start() {
+		previousBodyPosition = bodyCentre.position;
+		previousBodyPosition.y = transform.position.y;
+	}
 
 	private void GetRagdollReferences()
 	{
@@ -63,4 +72,18 @@ public class Ragdoll : MonoBehaviour
     }
 
 	public IEnumerable<Collider> Colliders => _ragdollColliders;
+
+	public void Update() {
+		Vector3 newPreviousBodyPosition = bodyCentre.position;
+		newPreviousBodyPosition.y = transform.position.y;
+
+		Vector3 movement = newPreviousBodyPosition - previousBodyPosition;
+		movement.y = 0;
+
+		transform.position += movement;
+		colliderRoot.position -= movement;
+
+		previousBodyPosition = bodyCentre.position;
+		previousBodyPosition.y = transform.position.y;
+	}
 }

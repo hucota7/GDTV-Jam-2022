@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b21ff3866052ac4cbd06fa355604c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliderRoot: {fileID: 872263519342811325}
+  bodyCentre: {fileID: 608582828774370094}
 --- !u!1001 &5170146379745910722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -395,6 +397,16 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!4 &608582828774370094 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3480699329000672020, guid: 232d94871ee270343b426eb33b659c4d, type: 3}
+  m_PrefabInstance: {fileID: 5170146379745910722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &872263519342811325 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5465940246521907071, guid: 232d94871ee270343b426eb33b659c4d, type: 3}
+  m_PrefabInstance: {fileID: 5170146379745910722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1363124476757797705 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3086436065929644917, guid: 232d94871ee270343b426eb33b659c4d, type: 3}
