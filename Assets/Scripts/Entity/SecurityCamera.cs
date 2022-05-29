@@ -6,6 +6,8 @@ using Helpers.Array;
 
 public class SecurityCamera : Entity
 {
+	[SerializeField] bool isTurnedOn = true;
+	[SerializeField] GameObject theViewCone;
     public Transform pivot;
 	// x is yaw degrees, y is rotation duration, z is seconds to delay before moving on
 	[SerializeField, VectorLabels("Yaw", "Time", "Delay")] Vector3[] rotationSequence;
@@ -14,7 +16,7 @@ public class SecurityCamera : Entity
 
 	float yaw = 0;
 
-	//disable security camera's animation/rotation when posessed?
+	//disable security camera's animation/rotation when posessed? <---
 	//or turn off the camera's ability to sense you some other way?
 	//or hop into the security camera's camera-view?
 	//or manually control camera's view in some way.
@@ -24,18 +26,25 @@ public class SecurityCamera : Entity
 
 	private void FixedUpdate()
 	{
-		RotateCamera();
+		if (isTurnedOn)
+		{
+		//play beep occasionally, or just use it as an interact sound i.e. played when you cam toggle on/off
+			RotateCamera();
+			theViewCone.GetComponent<MeshRenderer>().enabled = true;
+		}
+		else { theViewCone.GetComponent<MeshRenderer>().enabled = false; }
 	}
 
 	void RotateCamera()
 	{
-		yaw = curve.Evaluate(Time.time);
-		pivot.localRotation = Quaternion.AngleAxis(yaw, Vector3.up);
+			yaw = curve.Evaluate(Time.time);
+			pivot.localRotation = Quaternion.AngleAxis(yaw, Vector3.up);	
 	}
 
 #if UNITY_EDITOR
 	private void OnValidate()
 	{
+		//some of this probably needs to be frozen if isTurnedOn = false 
 		if (rotationSequence.Length == 0)
 		{
 			curve = new AnimationCurve(new Keyframe(0, 0));

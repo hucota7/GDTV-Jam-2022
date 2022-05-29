@@ -1511,6 +1511,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.0021803372
       objectReference: {fileID: 0}
+    - target: {fileID: 6912549501128769896, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
+      propertyPath: isTurnedOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912549502652605480, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
+      propertyPath: isTurnedOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6912549502652605480, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
       propertyPath: curve.m_PreInfinity
       value: 1
