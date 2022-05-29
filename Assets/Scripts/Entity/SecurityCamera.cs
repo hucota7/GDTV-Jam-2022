@@ -25,15 +25,21 @@ public class SecurityCamera : Entity, IMoveable ,IUseable
 
 	private void FixedUpdate()
 	{
+		Debug.Log(viewConeTrigger.detectedPlayer);
 		if (isTurnedOn)
 		{
 			//would be nice to play that turn on sound when you turn it on
 			//AudioManager.Play("CamTurnOnSFX");
-			RotateCamera();
-			if (!viewConeTrigger.gameObject.activeInHierarchy)
+			if (!viewConeTrigger.detectedPlayer)
 			{
-				viewConeTrigger.gameObject.SetActive(true);
+				RotateCamera();
+				
 			}
+				if (!viewConeTrigger.gameObject.activeInHierarchy)
+				{
+					viewConeTrigger.gameObject.SetActive(true);
+				}
+			
 		}
 		else 
 		{

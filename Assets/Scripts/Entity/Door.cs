@@ -52,7 +52,23 @@ public class Door : Entity, IMoveable, IUseable
     }
 
 	public virtual void Move(Vector3 direction) { }
-
+	public void ShowPrompt()
+	{
+		//ThoughtBubble.PlayThought("F", Color.white);
+		if (!requiresKey)
+		{
+			prompt.ShowInteractPrompt(true, "E");
+		}
+        else 
+		{
+			prompt.ShowInteractPrompt(true, "?"); 
+		}
+	}
+	public void HidePrompt()
+	{
+		//ThoughtBubble.PlayThought("F", Color.white);
+		prompt.ShowInteractPrompt(false, "E");
+	}
 	public virtual void Use()
 	{
 		if (!requiresKey)

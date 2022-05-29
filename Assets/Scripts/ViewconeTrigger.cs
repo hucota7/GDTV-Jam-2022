@@ -8,6 +8,7 @@ public class ViewconeTrigger : MonoBehaviour
     public Renderer rend;
     public Material discoveredMat;
     private Material defaultMat;
+    public bool detectedPlayer = false;
 
     private void Awake()
     {
@@ -32,6 +33,9 @@ public class ViewconeTrigger : MonoBehaviour
         {
             rend.material = discoveredMat;
             AudioManager.Play("WarningAlertSFX");
+            detectedPlayer = true;
+            //Stop the rotation /disable rotation() isDetected= true; 
+
         }
     }
     private void OnTriggerExit(Collider other)
@@ -39,6 +43,7 @@ public class ViewconeTrigger : MonoBehaviour
         if (other.GetComponentInParent<Entity>(true) is Entity e && e.CompareTag("Player"))
         {
             rend.material = defaultMat;
+            detectedPlayer = false; 
         }
     }
 }
