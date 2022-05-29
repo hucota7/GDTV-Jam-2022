@@ -72,9 +72,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2741550509631948385}
   - component: {fileID: 2741550509631948446}
+  - component: {fileID: 4465389244607902011}
   - component: {fileID: 2741550509631948447}
-  - component: {fileID: 2741550509631948444}
-  - component: {fileID: 2741550509631948384}
   - component: {fileID: 7993542642025317822}
   m_Layer: 6
   m_Name: Cleaner
@@ -120,6 +119,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4465389244607902011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2741550509631948445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887764c5fcbbac742a483407f18c0ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderers:
+  - {fileID: 3561939933784320362}
+  - {fileID: 7651728127056890220}
+  - {fileID: 3998473343012551280}
+  - {fileID: 7144727761873690989}
+  uiPoint: {fileID: 2741550509623735254}
+  prompt: {fileID: 0}
+  cc: {fileID: 2741550509631948447}
+  animator: {fileID: 2741550509631948446}
+  draggingPoint: {fileID: 8983442906312262299}
+  maxSpeed: 0
+  speedModifier: 1
+  accel: 0
+  velocity: {x: 0, y: 0, z: 0}
+  keyHolder: {fileID: 2154366458269002215}
+  <HoldingKey>k__BackingField: 0
+  <IsDead>k__BackingField: 0
+  <Route>k__BackingField: {fileID: 0}
 --- !u!143 &2741550509631948447
 CharacterController:
   m_ObjectHideFlags: 0
@@ -138,53 +167,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.65, z: 0}
---- !u!114 &2741550509631948444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2741550509631948445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35322bcc8b0cc7408ef931aa9f91cbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderers:
-  - {fileID: 3998473343012551280}
-  - {fileID: 7144727761873690989}
-  uiPoint: {fileID: 2741550509623735254}
-  prompt: {fileID: 0}
-  cc: {fileID: 2741550509631948447}
-  animator: {fileID: 2741550509631948446}
-  draggingPoint: {fileID: 568434046748514324}
-  maxSpeed: 2.5
-  speedModifier: 1
-  accel: 8
-  velocity: {x: 0, y: 0, z: 0}
-  keyHolder: {fileID: 2154366458269002215}
-  <HoldingKey>k__BackingField: 0
-  <IsDead>k__BackingField: 0
-  <Route>k__BackingField: {fileID: 0}
---- !u!114 &2741550509631948384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2741550509631948445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68b0ba8208aa3ea40849d251b83e71a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 2741550509631948444}
-  OnPossess:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUnpossess:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &7993542642025317822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +236,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 670cd4ec32917d643a07aed683650e73, type: 3}
+--- !u!23 &3561939933784320362 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4683669308469848369, guid: 670cd4ec32917d643a07aed683650e73, type: 3}
+  m_PrefabInstance: {fileID: 1039996074011361189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7651728127056890220 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1990968323811559735, guid: 670cd4ec32917d643a07aed683650e73, type: 3}
+  m_PrefabInstance: {fileID: 1039996074011361189}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2440055107465209634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,11 +363,6 @@ PrefabInstance:
 --- !u!4 &46556391462972170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2412161367050800168, guid: 78a04c7eb5b3a3440b859c196bd34c47, type: 3}
-  m_PrefabInstance: {fileID: 2440055107465209634}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &568434046748514324 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2756109452300631862, guid: 78a04c7eb5b3a3440b859c196bd34c47, type: 3}
   m_PrefabInstance: {fileID: 2440055107465209634}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1714253459690190681 stripped
