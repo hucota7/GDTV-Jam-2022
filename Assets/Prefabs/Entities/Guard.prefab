@@ -123,11 +123,16 @@ MonoBehaviour:
   - {fileID: 113933688154768816}
   - {fileID: 7604102112747748408}
   uiPoint: {fileID: 2190658524501901462}
+  prompt: {fileID: 0}
   cc: {fileID: 2190658524593305055}
   animator: {fileID: 2190658524593305054}
+  draggingPoint: {fileID: 5551000594795072801}
   maxSpeed: 2.5
+  speedModifier: 1
   accel: 8
   velocity: {x: 0, y: 0, z: 0}
+  keyHolder: {fileID: 134815128121999840}
+  <HoldingKey>k__BackingField: 0
   <IsDead>k__BackingField: 0
   <Route>k__BackingField: {fileID: 0}
 --- !u!114 &2190658524593304864
@@ -143,6 +148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 2190658524593305052}
+  OnPossess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnpossess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6234104854485972734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +166,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b21ff3866052ac4cbd06fa355604c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3934081586761524926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134815128121999840}
+  m_Layer: 13
+  m_Name: KeyHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134815128121999840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934081586761524926}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0.2, y: 0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5551000594795072801}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!1001 &1672376388052359394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -850,6 +892,11 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!4 &5551000594795072801 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: 232d94871ee270343b426eb33b659c4d, type: 3}
+  m_PrefabInstance: {fileID: 1672376388052359394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6118803610759132586 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4332706925441422008, guid: 232d94871ee270343b426eb33b659c4d, type: 3}

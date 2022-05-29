@@ -89,7 +89,6 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 	public virtual void PickupKey(Key key)
     {
 		Debug.Log($"{gameObject.name} picked up a key!");
-
     }
 
 	public virtual void Move(Vector3 direction)

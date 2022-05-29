@@ -17,7 +17,7 @@ public class Key : MonoBehaviour
     {
         keyVisual.transform.SetParent(character.keyHolder);
         keyVisual.transform.position = character.keyHolder.position;
-        keyVisual.transform.rotation = Quaternion.identity;
+        keyVisual.transform.rotation = character.keyHolder.rotation;
         character.PickupKey(this);
     }
 }
