@@ -162,5 +162,8 @@ public class PossessionManager : MonoBehaviour
 		CurrentPossessed = newPossessable;
 
 		Possessed?.Invoke(CurrentPossessed);
+		Entity entity = CurrentPossessed.GetEntity();
+		if (entity.prompt) entity.prompt.ShowPossessPrompt(false);
+
 	}
 }
