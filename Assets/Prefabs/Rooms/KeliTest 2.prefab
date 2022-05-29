@@ -1914,6 +1914,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4937519459994176838}
     m_Modifications:
+    - target: {fileID: 4931138323635905001, guid: 41243e6a530325a4d9f01c756df6fcf4, type: 3}
+      propertyPath: <IsDead>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7271832221522474182, guid: 41243e6a530325a4d9f01c756df6fcf4, type: 3}
       propertyPath: m_Name
       value: Protag
