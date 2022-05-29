@@ -15,9 +15,10 @@ public class Key : MonoBehaviour
 
     public void KeyPickup(Character character)
     {
-        keyVisual.transform.SetParent(character.keyHolder);
-        keyVisual.transform.position = character.keyHolder.position;
-        keyVisual.transform.rotation = character.keyHolder.rotation;
+        transform.SetParent(character.keyHolder);
+        transform.position = character.keyHolder.position;
+        transform.rotation = character.keyHolder.rotation;
+        if (TryGetComponent(out Spin spin)) spin.enabled = false;
         character.PickupKey(this);
     }
 }

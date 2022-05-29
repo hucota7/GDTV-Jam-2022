@@ -93,7 +93,7 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
     }
 
 	public virtual void RemoveKey() {
-
+		Destroy(keyHolder.GetComponentInChildren<Key>().gameObject);
 	}
 
 	public virtual void Move(Vector3 direction)
