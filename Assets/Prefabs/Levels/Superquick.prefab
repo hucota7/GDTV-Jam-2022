@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 20850758413744469}
   - component: {fileID: 7513335967643111685}
   - component: {fileID: 9106208947505770919}
+  - component: {fileID: 1319158762243028388}
   m_Layer: 0
   m_Name: Superquick
   m_TagString: Untagged
@@ -674,7 +675,37 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.05
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 754201d2394f38d47a5188159ff8ede2, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: bca38158b150e2848972b8da95f8a458, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!114 &1319158762243028388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7998866770413861867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1537
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 1
+  m_TileSize: 64
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 0.0313
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 3468c2135fc8e4543a1e4ae17b45b571, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &9085228862099653667
 GameObject:
