@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class Character : Entity, IMoveable, IUseable, IDragging {
-	public CharacterController CC => cc;
-	[SerializeField] private CharacterController cc;
+public class Character : Entity, ICanPathfind, IUseable, IDragging
+{
+	[SerializeField] protected NavMeshAgent agent;
 	[SerializeField] private Animator animator;
+
 	[Space]
 	[SerializeField] private Transform draggingPoint;
+
 	[Space]
 	[SerializeField] private float maxSpeed;
 	[SerializeField] private float speedModifier = 1f;
@@ -48,6 +51,7 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 		base.Start();
 		ThoughtBubble = Instantiate(InterfaceManager.Instance.thoughtBubblePrefab, InterfaceManager.Instance.worldCanvas.transform);
 		ThoughtBubble.Init(uiPoint);
+		agent.enabled = true;
 	}
 
 	public virtual void Update()
@@ -63,7 +67,8 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 		}
 	}
 
-	public virtual void FixedUpdate() {
+	public virtual void FixedUpdate()
+	{
 		if (currentDraggable != null)
 			currentDraggable.Drag(this);
 	}
@@ -73,7 +78,7 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 		if (TryGetComponent(out Ragdoll ragdoll))
 		{
 			IsDead = true;
-			CC.enabled = false;
+			agent.enabled = false;
 			ragdoll.ActivateRagdoll();
 			StopAllCoroutines();
 			CanMove = false;
@@ -87,12 +92,13 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 	}
 
 	public virtual void PickupKey(Key key)
-    {
+	{
 		HoldingKey = true;
 		Debug.Log($"{gameObject.name} picked up a key!");
-    }
+	}
 
-	public virtual void RemoveKey() {
+	public virtual void RemoveKey()
+	{
 		Destroy(keyHolder.GetComponentInChildren<Key>().gameObject);
 	}
 
@@ -101,12 +107,25 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 		if (CanMove)
 		{
 			velocity = Vector3.MoveTowards(velocity, direction * maxSpeed * speedModifier, Time.deltaTime * accel);
-			cc.Move(velocity * Time.deltaTime + Vector3.down);
+
+			agent.Move(velocity * Time.deltaTime);
 			//animator.SetFloat("Speed", velocity.magnitude);
 			animSpeed = velocity.magnitude;
 			if (direction.magnitude > 0.1f)
 				Look(direction);
 		}
+	}
+
+	public bool TryPathfind(Vector3 worldPosition)
+	{
+		if (CanMove)
+		{
+			if (agent.SetDestination(worldPosition))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public virtual void Look(Vector3 direction, float rate = 720)
@@ -160,13 +179,15 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 	}
 
 
-	public virtual void StartDragging(IDraggable dragged) {
+	public virtual void StartDragging(IDraggable dragged)
+	{
 		speedModifier = 0.5f;
 		animator.SetBool("Dragging", true);
 		currentDraggable = dragged;
 	}
 
-	public virtual void StopDragging(IDraggable dragged) {
+	public virtual void StopDragging(IDraggable dragged)
+	{
 		if (currentDraggable == null)
 			return;
 
@@ -175,7 +196,8 @@ public class Character : Entity, IMoveable, IUseable, IDragging {
 		currentDraggable = null;
 	}
 
-	public Transform GetDragLinkPoint() {
+	public Transform GetDragLinkPoint()
+	{
 		return draggingPoint;
 	}
 }

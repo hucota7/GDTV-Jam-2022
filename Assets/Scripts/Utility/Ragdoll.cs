@@ -20,6 +20,7 @@ public class Ragdoll : MonoBehaviour {
 		_character = GetComponent<Character>();
         _animator = GetComponent<Animator>();
         GetRagdollReferences();
+		enabled = false;
     }
 
 	public void Start() {
@@ -69,6 +70,8 @@ public class Ragdoll : MonoBehaviour {
 
         // activate colliders
         _ragdollColliders.ForEach(c => c.enabled = true);
+
+		enabled = true;
     }
 
 	public IEnumerable<Collider> Colliders => _ragdollColliders;

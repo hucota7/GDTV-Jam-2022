@@ -25,7 +25,6 @@ public class SecurityCamera : Entity, IMoveable ,IUseable
 
 	private void FixedUpdate()
 	{
-		Debug.Log(viewConeTrigger.detectedPlayer);
 		if (isTurnedOn)
 		{
 			//would be nice to play that turn on sound when you turn it on
