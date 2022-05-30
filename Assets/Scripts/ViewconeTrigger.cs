@@ -17,6 +17,18 @@ public class ViewconeTrigger : MonoBehaviour
         defaultMat = rend.material;
     }
 
+    private void Update()
+    {
+        if(GameManager.HighAlert)
+        {
+            rend.material = discoveredMat;
+        }
+        else
+        {
+            rend.material = defaultMat;
+        }
+    }
+
     private void OnEnable()
     {
         rend.enabled = true;
@@ -63,8 +75,11 @@ public class ViewconeTrigger : MonoBehaviour
     }
 
     private void SeePlayer() {
-        rend.material = discoveredMat;
-        AudioManager.Play("WarningAlertSFX");
+        if (!GameManager.HighAlert)
+        {
+            rend.material = discoveredMat;
+            AudioManager.Play("WarningAlertSFX");
+        }
         detectedPlayer = true;
 
         if (!GameManager.HighAlert)
