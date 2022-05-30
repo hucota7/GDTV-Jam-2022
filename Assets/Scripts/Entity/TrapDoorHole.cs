@@ -6,24 +6,24 @@ public class TrapDoorHole : MonoBehaviour
 {
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.TryGetComponent(out Ragdoll ragdoll))
-		{
-			
+		Ragdoll ragdoll = other.GetComponentInChildren<Ragdoll>();
+
+		if (ragdoll != null) {
+
 			int layer = LayerMask.NameToLayer("FallThru");
-			foreach (var c in ragdoll.Colliders)
-			{
+			foreach (var c in ragdoll.Colliders) {
 				c.gameObject.layer = layer;
 			}
 
-			if (other.TryGetComponent(out Character ch))
-			{
+			if (other.TryGetComponent(out Character ch)) {
 				ch.Die();
 			}
-			else
-			{
+			else {
 				ragdoll.ActivateRagdoll();
 			}
 		}
-		
+		else if (other.GetComponent<Rat>() != null) {
+			other.GetComponent<Rat>().Die();
+		}
 	}
 }

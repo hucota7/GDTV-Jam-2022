@@ -7,6 +7,8 @@ public class Character : Entity, ICanPathfind, IUseable, IDragging
 {
 	[SerializeField] protected NavMeshAgent agent;
 	[SerializeField] private Animator animator;
+	[SerializeField] private Collider mainCollider;
+	[SerializeField] private Possessable possessable;
 
 	[Space]
 	[SerializeField] private Transform draggingPoint;
@@ -73,12 +75,15 @@ public class Character : Entity, ICanPathfind, IUseable, IDragging
 			currentDraggable.Drag(this);
 	}
 
-	public override void Die()
-	{
+	public override void Die() {
+		if (PossessionManager.Instance.CurrentPossessed == (IPossessable)possessable)
+			PossessionManager.Instance.Possess();
+
 		if (TryGetComponent(out Ragdoll ragdoll))
 		{
 			IsDead = true;
 			agent.enabled = false;
+			mainCollider.enabled = false;
 			ragdoll.ActivateRagdoll();
 			StopAllCoroutines();
 			CanMove = false;

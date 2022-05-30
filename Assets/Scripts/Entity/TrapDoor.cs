@@ -16,7 +16,7 @@ public class TrapDoor : Door
 	{
 		base.OpenDoors();
 
-		if (hole)
+		if (!hole.gameObject.activeSelf)
 			hole.gameObject.SetActive(true);
 	}
 
@@ -24,7 +24,7 @@ public class TrapDoor : Door
 	{
 		base.CloseDoors();
 
-		if (hole)
+		if (hole.gameObject.activeSelf)
 			hole.gameObject.SetActive(false);
 	}
 }
