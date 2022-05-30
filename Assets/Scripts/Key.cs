@@ -7,7 +7,7 @@ public class Key : MonoBehaviour
     public GameObject keyVisual;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Character character))
+        if(other.TryGetComponent(out Character character) && character.IsDead == false)
         {
             KeyPickup(character);
         }
