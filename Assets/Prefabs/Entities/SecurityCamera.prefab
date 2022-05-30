@@ -631,6 +631,7 @@ MonoBehaviour:
   rend: {fileID: 3465045005872566310}
   discoveredMat: {fileID: 2100000, guid: 9923cb9d16c8bc84e92d08eb033cd5a2, type: 2}
   cameraBody: {fileID: 6879032270155366702}
+  securityCamera: {fileID: 486902999794621404}
   lineOfSightMask:
     serializedVersion: 2
     m_Bits: 9161
