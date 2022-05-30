@@ -8,11 +8,13 @@ public class SpinnyLights : MonoBehaviour
     [SerializeField] public bool isActivated = false;
     [SerializeField] public Light Light1;
     [SerializeField] public Light Light2;
-    
 
+	private void Awake() {
+        GameManager.Instance.AlarmRaised += () => isActivated = true;
+        GameManager.Instance.AlarmLowered += () => isActivated = false;
+	}
 
-    // Update is called once per frame
-    void Update()
+	void Update()
     {
         LightControls();
     }

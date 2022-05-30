@@ -75,6 +75,6 @@ public class ViewconeTrigger : MonoBehaviour
         detectedPlayer = false;
         securityCamera.StopCameraRotation(1);
 
-        GameManager.Instance.RaiseAlarm();
+        GameManager.Instance.LowerAlarm();
     }
 }
