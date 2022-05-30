@@ -225,6 +225,8 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: 413795be4dedcf644bb9e383d34b26a1, type: 3}
     - Key: DoorClosingSFX
       Value: {fileID: 8300000, guid: bc13d51017ebfaf47a5691cb9075a6ad, type: 3}
+    - Key: LightSwitchSFX
+      Value: {fileID: 8300000, guid: e9ca5296187644b4d879f73fca041924, type: 3}
   musicBank:
     kvps: []
 --- !u!1 &5945269308777062675

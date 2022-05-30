@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7898018394805804207}
   - component: {fileID: 8091774228908152327}
   - component: {fileID: 3619160202604787211}
-  - component: {fileID: -1530647139050556715}
+  - component: {fileID: 4221766013889075889}
   m_Layer: 6
   m_Name: TrapDoor
   m_TagString: Untagged
@@ -96,6 +96,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 3619160202604787211}
+  OnPossess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnpossess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3619160202604787211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +119,7 @@ MonoBehaviour:
   - {fileID: 7432982013495200030}
   - {fileID: 3443725896881430672}
   uiPoint: {fileID: 1587013326867955847}
+  prompt: {fileID: 0}
   pivots:
   - {fileID: 8916208778738471094}
   - {fileID: 2083490308499030254}
@@ -125,7 +132,7 @@ MonoBehaviour:
   lockVisual: {fileID: 2022463946905446851}
   isOpen: 0
   hole: {fileID: 2067527309645930311}
---- !u!114 &-1530647139050556715
+--- !u!114 &4221766013889075889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,10 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1164647686471471097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7512b5d0debf66141ab7c976be5a3c19, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cb5c35650e17ac40b6af02400450809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 3619160202604787211}
+  doorEntity: {fileID: 3619160202604787211}
 --- !u!1 &2440344285679675977
 GameObject:
   m_ObjectHideFlags: 0

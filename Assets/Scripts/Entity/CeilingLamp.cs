@@ -17,5 +17,6 @@ public class CeilingLamp : Entity, IMoveable, IUseable
         isOn = !isOn;
         
         ceilingLight.enabled = isOn;
+        AudioManager.Play("LightSwitchSFX");
     }
 }
