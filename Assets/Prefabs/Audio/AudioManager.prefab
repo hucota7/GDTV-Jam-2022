@@ -219,6 +219,10 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: d55df27d05bff5b41a374d70bfedcdd2, type: 3}
     - Key: DoorSqueekSFX
       Value: {fileID: 8300000, guid: c5ce1ecd022de3e448886b87b08103ac, type: 3}
+    - Key: PlopSFX
+      Value: {fileID: 8300000, guid: fc10d6f21abe575408a19325fe0fcdc2, type: 3}
+    - Key: RedAlertSFX
+      Value: {fileID: 8300000, guid: 413795be4dedcf644bb9e383d34b26a1, type: 3}
   musicBank:
     kvps: []
 --- !u!1 &5945269308777062675
