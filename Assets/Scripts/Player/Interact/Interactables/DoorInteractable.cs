@@ -31,6 +31,7 @@ public class DoorInteractable : MonoBehaviour, IInteractable {
 			if (interactor is Character)
 				(interactor as Character).RemoveKey();
 		}
-		useable.Use();
+		useable.Use();	
 	}
+
 }

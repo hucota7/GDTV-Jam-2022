@@ -217,6 +217,8 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: f8a4aa8e3dd9e2e429a6f5ec3fddb149, type: 3}
     - Key: CamTurnOffSFX
       Value: {fileID: 8300000, guid: d55df27d05bff5b41a374d70bfedcdd2, type: 3}
+    - Key: DoorSqueekSFX
+      Value: {fileID: 8300000, guid: c5ce1ecd022de3e448886b87b08103ac, type: 3}
   musicBank:
     kvps: []
 --- !u!1 &5945269308777062675
