@@ -67,7 +67,10 @@ public class ViewconeTrigger : MonoBehaviour
         AudioManager.Play("WarningAlertSFX");
         detectedPlayer = true;
 
-        GameManager.Instance.RaiseAlarm();
+        if (!GameManager.HighAlert)
+        {
+            GameManager.Instance.RaiseAlarm();
+        }
     }
 
     private void UnseePlayer() {
@@ -75,6 +78,9 @@ public class ViewconeTrigger : MonoBehaviour
         detectedPlayer = false;
         securityCamera.StopCameraRotation(1);
 
-        GameManager.Instance.LowerAlarm();
+        //if (GameManager.AlarmLevel > 0)
+        //{
+        //    GameManager.Instance.LowerAlarm();
+        //}
     }
 }

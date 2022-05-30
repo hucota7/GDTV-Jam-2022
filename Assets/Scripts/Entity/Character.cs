@@ -7,8 +7,6 @@ public class Character : Entity, ICanPathfind, IUseable, IDragging
 {
 	[SerializeField] protected NavMeshAgent agent;
 	[SerializeField] private Animator animator;
-	[SerializeField] private Collider mainCollider;
-	[SerializeField] private Possessable possessable;
 
 	[Space]
 	[SerializeField] private Transform draggingPoint;
@@ -73,17 +71,25 @@ public class Character : Entity, ICanPathfind, IUseable, IDragging
 	{
 		if (currentDraggable != null)
 			currentDraggable.Drag(this);
+
+		if (agent.path != null)
+		{
+			if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out RaycastHit hit, 1, ~0))
+			{
+				if (hit.collider.GetComponentInParent<Door>() is Door door && !door.isOpen)
+				{
+					door.Use();
+				}
+			}
+		}
 	}
 
-	public override void Die() {
-		if (PossessionManager.Instance.CurrentPossessed == (IPossessable)possessable)
-			PossessionManager.Instance.Possess();
-
+	public override void Die()
+	{
 		if (TryGetComponent(out Ragdoll ragdoll))
 		{
 			IsDead = true;
 			agent.enabled = false;
-			mainCollider.enabled = false;
 			ragdoll.ActivateRagdoll();
 			StopAllCoroutines();
 			CanMove = false;
@@ -105,7 +111,6 @@ public class Character : Entity, ICanPathfind, IUseable, IDragging
 	public virtual void RemoveKey()
 	{
 		Destroy(keyHolder.GetComponentInChildren<Key>().gameObject);
-		AudioManager.Play("UnlockSFX");
 	}
 
 	public virtual void Move(Vector3 direction)

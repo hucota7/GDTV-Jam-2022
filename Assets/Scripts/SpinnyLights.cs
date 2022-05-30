@@ -21,7 +21,7 @@ public class SpinnyLights : MonoBehaviour
 
     private void LightControls()
     {
-        if (isActivated)
+        if (GameManager.HighAlert)
         {
 
             //spin on pivot z axis (use spin script)

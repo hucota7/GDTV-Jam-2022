@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
 	public Action AlarmRaised;
 	public Action AlarmLowered;
 
+	//public static int AlarmLevel = 0;
+	public static bool HighAlert = false;
+	public float cooldownTime = 10f;
+	[HideInInspector] public float cooldown;
+
 	// References
 
 	[SerializeField] private CameraController _cameraController;
@@ -38,6 +43,34 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			Destroy(gameObject);
+		}
+		cooldown = cooldownTime;
+	}
+
+    private void Update()
+    {
+        if(HighAlert)
+        {
+			CooldownAlarms();
+        }
+		else
+        {
+			RunAlarms();
+        }
+    }
+
+	public void RunAlarms()
+    {
+		if (cooldown < cooldownTime) cooldown = cooldownTime;
+    }
+
+	public void CooldownAlarms()
+    {
+		cooldown -= Time.deltaTime;
+		if (cooldown <= 0)
+		{
+			HighAlert = false;
+			cooldown = 0;
 		}
 	}
 
@@ -124,6 +157,7 @@ public class GameManager : MonoBehaviour
 
 	public void RaiseAlarm() {
 		AlarmRaised?.Invoke();
+		HighAlert = true;
 	}
 
 	public void LowerAlarm() {

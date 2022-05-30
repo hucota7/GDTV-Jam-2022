@@ -15,7 +15,7 @@ public class Door : Entity, IMoveable, IUseable
     public bool requiresKey = false; //Does this door require a key?
 	public GameObject lockVisual;
 
-	[SerializeField] bool isOpen = false;
+	[field: SerializeField] public bool isOpen { get; protected set; } = false;
 
     public override void Start()
     {
