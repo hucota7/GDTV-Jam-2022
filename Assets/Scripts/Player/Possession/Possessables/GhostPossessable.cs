@@ -44,7 +44,8 @@ public class GhostPossessable : Possessable
 
 		movement.velocity = Vector3.zero;
 
-		transform.SetParent(((Component)newlyPossessed).transform);
+		//transform.SetParent(((Component)newlyPossessed).transform);
+		transform.SetParent(null);
 		transform.localPosition = Vector3.zero;
 	}
 }
