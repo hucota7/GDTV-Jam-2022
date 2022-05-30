@@ -1149,10 +1149,6 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.000000011175871
       objectReference: {fileID: 0}
-    - target: {fileID: 6488605090281034183, guid: 43379bf511329f1439b0ddfe63a779b6, type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: f6be8481cb39021468c1fc8997f2f67f, type: 2}
     - target: {fileID: 6519696733147205716, guid: 43379bf511329f1439b0ddfe63a779b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1362,7 +1358,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 1
   m_VoxelSize: 0.0313
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 4d1948d94b93a0342893447da7577c8f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c35ef87fadac65e4895b7d35effac7b5, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &2377754620263089081
 MonoBehaviour:
