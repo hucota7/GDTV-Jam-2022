@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -48,15 +47,10 @@ public class ViewconeTrigger : MonoBehaviour
             return;
 
         if (canSeePlayer) {
-            rend.material = discoveredMat;
-            AudioManager.Play("WarningAlertSFX");
-            detectedPlayer = true;
-            //Stop the rotation /disable rotation() isDetected= true; 
+            SeePlayer();
         }
         else {
-            rend.material = defaultMat;
-            detectedPlayer = false;
-            securityCamera.StopCameraRotation(1);
+            UnseePlayer();
         }
     }
     private void OnTriggerExit(Collider other) {
@@ -64,9 +58,23 @@ public class ViewconeTrigger : MonoBehaviour
             return;
 
         if (other.GetComponentInParent<Entity>(true) is Entity e && e.CompareTag("Player")) {
-            rend.material = defaultMat;
-            detectedPlayer = false;
-            securityCamera.StopCameraRotation(1);
+            UnseePlayer();
         }
+    }
+
+    private void SeePlayer() {
+        rend.material = discoveredMat;
+        AudioManager.Play("WarningAlertSFX");
+        detectedPlayer = true;
+
+        GameManager.Instance.RaiseAlarm();
+    }
+
+    private void UnseePlayer() {
+        rend.material = defaultMat;
+        detectedPlayer = false;
+        securityCamera.StopCameraRotation(1);
+
+        GameManager.Instance.RaiseAlarm();
     }
 }
