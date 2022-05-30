@@ -11,10 +11,30 @@ public class PatrolNode : MonoBehaviour
 	public IEnumerator Process(Character character)
 	{
 		// instruct character to move towards node
-		while (Vector2.Distance(character.transform.position.xz(), transform.position.xz()) > 0.1f)
+		if (character is ICanPathfind pathfinder)
 		{
-			character.Move((transform.position.xz() - character.transform.position.xz()).normalized.xz() / 2);
-			yield return new WaitForEndOfFrame();
+			while (!pathfinder.TryPathfind(transform.position))
+			{
+				yield return new WaitForEndOfFrame();
+			}
+
+			while (Vector2.Distance(character.transform.position.xz(), transform.position.xz()) > 0.1f)
+			{
+				character.UpdateAnimationFromAgent();
+				yield return new WaitForEndOfFrame();
+			}
+
+			((Component)pathfinder).GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
+		}
+		else
+		{
+			while (Vector2.Distance(character.transform.position.xz(), transform.position.xz()) > 0.1f)
+			{
+				Vector3 direction = (transform.position.xz() - character.transform.position.xz()).normalized.xz();
+				character.Move(direction / 2);
+				Debug.DrawRay(transform.position, direction, Color.green, 0, false);
+				yield return new WaitForEndOfFrame();
+			}
 		}
 
 		// if there are any instructions, process them in sequence

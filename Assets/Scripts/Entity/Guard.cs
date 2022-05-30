@@ -18,7 +18,6 @@ public class Guard : Character
 	public override void Start()
     {
         base.Start();
-		//GetComponent<Ragdoll>().ActivateRagdoll();
 		StartCoroutine(FollowRoute());
 	}
 
@@ -35,6 +34,7 @@ public class Guard : Character
 		{
 			Debug.Log("Stopping route");
 			StopAllCoroutines();
+			agent.ResetPath();
 		}
 
 		wasPossessed = possessable.IsPossessed;

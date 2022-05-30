@@ -116,6 +116,11 @@ public class Character : Entity, ICanPathfind, IUseable, IDragging
 		}
 	}
 
+	public void UpdateAnimationFromAgent()
+	{
+		animSpeed = agent.velocity.magnitude;
+	}
+
 	public bool TryPathfind(Vector3 worldPosition)
 	{
 		if (CanMove)
@@ -124,6 +129,8 @@ public class Character : Entity, ICanPathfind, IUseable, IDragging
 			{
 				return true;
 			}
+			Debug.LogWarning("Couldn't get a path");
+			Debug.DrawLine(transform.position, worldPosition, Color.red, 5);
 		}
 		return false;
 	}
