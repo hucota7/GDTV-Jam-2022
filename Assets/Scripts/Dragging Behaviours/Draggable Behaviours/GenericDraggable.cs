@@ -16,6 +16,7 @@ public class GenericDraggable : MonoBehaviour, IDraggable {
 
 		if (Vector3.Distance(draggerLinkPointLateral, entityLateralPosition) > disconnectDistance) {
 			dragger.StopDragging(this);
+			AudioManager.Play("PlopSFX");
 			return;
 		}
 
