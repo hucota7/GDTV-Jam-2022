@@ -9,6 +9,7 @@ public class ViewconeTrigger : MonoBehaviour
     public Material discoveredMat;
     private Material defaultMat;
     [SerializeField] private Transform cameraBody;
+    [SerializeField] private SecurityCamera securityCamera;
     [SerializeField] private LayerMask lineOfSightMask;
     public bool detectedPlayer = false;
 
@@ -55,6 +56,7 @@ public class ViewconeTrigger : MonoBehaviour
         else {
             rend.material = defaultMat;
             detectedPlayer = false;
+            securityCamera.StopCameraRotation(1);
         }
     }
     private void OnTriggerExit(Collider other) {
@@ -64,6 +66,7 @@ public class ViewconeTrigger : MonoBehaviour
         if (other.GetComponentInParent<Entity>(true) is Entity e && e.CompareTag("Player")) {
             rend.material = defaultMat;
             detectedPlayer = false;
+            securityCamera.StopCameraRotation(1);
         }
     }
 }
