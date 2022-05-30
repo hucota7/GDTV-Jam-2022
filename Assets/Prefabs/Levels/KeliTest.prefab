@@ -6649,7 +6649,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4118703039145739287, guid: 61fbae76ef3b1ec42873f6e24471e56f, type: 3}
       propertyPath: requiresKey
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337265417244770517, guid: 61fbae76ef3b1ec42873f6e24471e56f, type: 3}
       propertyPath: m_RootOrder

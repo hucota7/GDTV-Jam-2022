@@ -30,7 +30,7 @@ public class Door : Entity, IMoveable, IUseable
 	}
 
 	public virtual void OpenDoors()
-    {
+    {		
         for (int i = 0; i < pivots.Length; i++)
         {
 			pivots[i].localRotation = Quaternion.Lerp(
@@ -42,7 +42,7 @@ public class Door : Entity, IMoveable, IUseable
 
     public virtual void CloseDoors()
     {
-        for (int i = 0; i < pivots.Length; i++)
+		for (int i = 0; i < pivots.Length; i++)
         {
 			pivots[i].localRotation = Quaternion.Lerp(
 				pivots[i].localRotation,
@@ -74,6 +74,7 @@ public class Door : Entity, IMoveable, IUseable
 		if (!requiresKey)
 		{
 			isOpen = !isOpen;
+			AudioManager.Play("DoorSqueekSFX");
 		}
 	}
 }
