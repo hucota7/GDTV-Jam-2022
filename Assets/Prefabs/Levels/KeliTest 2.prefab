@@ -150,7 +150,6 @@ Transform:
   - {fileID: 1214950395016841901}
   - {fileID: 3825708650776073157}
   - {fileID: 5645443965726247895}
-  - {fileID: 6695874898266542181}
   - {fileID: 2569954842237591633}
   m_Father: {fileID: 20850758413744469}
   m_RootOrder: 4
@@ -731,6 +730,7 @@ Transform:
   - {fileID: 9013084590364954829}
   - {fileID: 676500688611233842}
   - {fileID: 5142663203317833489}
+  - {fileID: 213207664518480629}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3927,7 +3927,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 17990de3d3ede8141bb5be9586e00469, type: 3}
       propertyPath: m_RootOrder
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17990de3d3ede8141bb5be9586e00469, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4547,6 +4547,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4598380200892854, guid: f024a2bac71fe964292a9b1796e21d6a, type: 3}
   m_PrefabInstance: {fileID: 3034391152721820435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3188790095364666509
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 20850758413744469}
+    m_Modifications:
+    - target: {fileID: 2737762114206510274, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_Name
+      value: WaterDispensor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05000019
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.3241629
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9460013
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 217.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+--- !u!4 &213207664518480629 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3365786029435745912, guid: cab5a4cca7427ed45a9fc7f53396912a, type: 3}
+  m_PrefabInstance: {fileID: 3188790095364666509}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3189495014583355407
 PrefabInstance:
@@ -7697,68 +7759,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2741550509631948385, guid: db55686c08da2454d90ecc6cddcd9580, type: 3}
   m_PrefabInstance: {fileID: 6565994302791964332}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &6586021612315522958
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4167519995937528439}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_RootOrder
-      value: 43
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.3269706
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.6208315
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.0308104
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.44421473
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.8959204
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 232.746
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-      propertyPath: m_Name
-      value: WaterDispensor
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
---- !u!4 &6695874898266542181 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3ffff48eb8c47634cad85e05939d7240, type: 3}
-  m_PrefabInstance: {fileID: 6586021612315522958}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6587125598400953686
 PrefabInstance:
