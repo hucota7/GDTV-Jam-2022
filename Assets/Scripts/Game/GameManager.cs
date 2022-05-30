@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
 		ghostMovement.CC.enabled = false;
 		ghostMovement.transform.position = spawnPoint.position + new Vector3(0,0.5f,0);
 		playerCollectionObj.GetComponentInChildren <PossessionManager>().transform.position = spawnPoint.position + new Vector3(0, 0.5f, 0);
+		playerCollectionObj.GetComponentInChildren<PossessionManager>().Start();
 		ghostMovement.CC.enabled = true;
 	}
 
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
 		playerCollectionObj.SetActive(false);
 		yield return new WaitForSeconds(length);
 		if (currentLevel) Destroy(currentLevel.gameObject);
+		playerCollectionObj.GetComponentInChildren<MovementManager>().SetCurrentPossessedMovable(null);
 		currentLevel = Instantiate(levels[CurrentLevelIndex], _world);
 		playerCollectionObj.SetActive(true);
 		SetPlayerToSpawn(currentLevel.startPoint);

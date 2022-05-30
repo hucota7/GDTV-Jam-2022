@@ -36,7 +36,7 @@ public class PossessionManager : MonoBehaviour
 		}
 	}
 
-	private void Start()
+	public void Start()
 	{
 		if (closestPossesableAsStartingPossessable)
 		{
