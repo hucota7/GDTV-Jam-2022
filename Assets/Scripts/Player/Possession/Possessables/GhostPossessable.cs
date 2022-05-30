@@ -13,7 +13,8 @@ public class GhostPossessable : Possessable
 
 		// yes, this *is* necessary.
 		movement.CC.enabled = false;
-		transform.SetParent(transform.parent ? transform.parent.parent : null);
+		//transform.SetParent(transform.parent ? transform.parent.parent : null);
+		transform.SetParent(null);
 		transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
 		movement.CC.enabled = true;
 		movement.CC.detectCollisions = true;
@@ -44,8 +45,7 @@ public class GhostPossessable : Possessable
 
 		movement.velocity = Vector3.zero;
 
-		//transform.SetParent(((Component)newlyPossessed).transform);
-		transform.SetParent(null);
+		transform.SetParent(((Component)newlyPossessed).transform);
 		transform.localPosition = Vector3.zero;
 	}
 }
