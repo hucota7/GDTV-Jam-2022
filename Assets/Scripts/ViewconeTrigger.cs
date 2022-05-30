@@ -8,6 +8,8 @@ public class ViewconeTrigger : MonoBehaviour
     public Renderer rend;
     public Material discoveredMat;
     private Material defaultMat;
+    [SerializeField] private Transform cameraBody;
+    [SerializeField] private LayerMask lineOfSightMask;
     public bool detectedPlayer = false;
 
     private void Awake()
@@ -27,23 +29,41 @@ public class ViewconeTrigger : MonoBehaviour
         GetComponent<Collider>().enabled = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponentInParent<Entity>(true) is Entity e && e.CompareTag("Player"))
-        {
+        if (!(other.GetComponentInParent<Entity>(true) is Entity e && e.CompareTag("Player")))
+            return;
+
+        bool canSeePlayer = true;
+
+        Vector3 otherDirection = other.transform.position - cameraBody.position;
+
+        if (Physics.Raycast(cameraBody.position, otherDirection, out RaycastHit hit, otherDirection.magnitude, lineOfSightMask)) {
+            if (!(hit.transform.GetComponentInParent<Entity>(true) is Entity entity && entity.CompareTag("Player")))
+                canSeePlayer = false;
+        }
+
+        if (detectedPlayer == canSeePlayer)
+            return;
+
+        if (canSeePlayer) {
             rend.material = discoveredMat;
             AudioManager.Play("WarningAlertSFX");
             detectedPlayer = true;
             //Stop the rotation /disable rotation() isDetected= true; 
-
+        }
+        else {
+            rend.material = defaultMat;
+            detectedPlayer = false;
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponentInParent<Entity>(true) is Entity e && e.CompareTag("Player"))
-        {
+    private void OnTriggerExit(Collider other) {
+        if (!detectedPlayer)
+            return;
+
+        if (other.GetComponentInParent<Entity>(true) is Entity e && e.CompareTag("Player")) {
             rend.material = defaultMat;
-            detectedPlayer = false; 
+            detectedPlayer = false;
         }
     }
 }

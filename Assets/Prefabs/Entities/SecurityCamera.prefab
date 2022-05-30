@@ -74,7 +74,7 @@ MonoBehaviour:
   uiPoint: {fileID: 4838859983803529983}
   prompt: {fileID: 0}
   isTurnedOn: 1
-  viewConeTrigger: {fileID: 8814156334306171679}
+  viewConeTrigger: {fileID: 3311233341612167139}
   pivot: {fileID: 6879032270155366702}
   rotationSequence: []
   curve:
@@ -450,6 +450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ViewCone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1e4db8f10d9bc8549a381f4fdcea6f95, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e4db8f10d9bc8549a381f4fdcea6f95, type: 3}
 --- !u!4 &2332157413464566601 stripped
@@ -476,21 +480,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3613567641014311022, guid: 1e4db8f10d9bc8549a381f4fdcea6f95, type: 3}
---- !u!114 &8814156334306171679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3104858535249916403}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3bae66b3c15deb44a8490a1b7c78761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rend: {fileID: 3465045005872566310}
-  discoveredMat: {fileID: 2100000, guid: 9923cb9d16c8bc84e92d08eb033cd5a2, type: 2}
-  detectedPlayer: 0
 --- !u!114 &3731292963552831198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +584,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TriggerCone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1e4db8f10d9bc8549a381f4fdcea6f95, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5754084199372789682, guid: 1e4db8f10d9bc8549a381f4fdcea6f95, type: 3}
     - {fileID: -7511558181221131132, guid: 1e4db8f10d9bc8549a381f4fdcea6f95, type: 3}
@@ -637,6 +630,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 3465045005872566310}
   discoveredMat: {fileID: 2100000, guid: 9923cb9d16c8bc84e92d08eb033cd5a2, type: 2}
+  cameraBody: {fileID: 6879032270155366702}
+  lineOfSightMask:
+    serializedVersion: 2
+    m_Bits: 9161
   detectedPlayer: 0
 --- !u!114 &6711908287278725307
 MonoBehaviour:

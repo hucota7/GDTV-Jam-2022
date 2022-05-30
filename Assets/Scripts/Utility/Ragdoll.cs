@@ -13,8 +13,6 @@ public class Ragdoll : MonoBehaviour {
     private List<Rigidbody> _ragdollRigidbodies = new List<Rigidbody>();
     private List<Collider> _ragdollColliders = new List<Collider>();
 
-	private Vector3 previousBodyPosition;
-
 	private void Awake()
     {
 		_character = GetComponent<Character>();
@@ -22,11 +20,6 @@ public class Ragdoll : MonoBehaviour {
         GetRagdollReferences();
 		enabled = false;
     }
-
-	public void Start() {
-		previousBodyPosition = bodyCentre.position;
-		previousBodyPosition.y = transform.position.y;
-	}
 
 	private void GetRagdollReferences()
 	{
@@ -55,7 +48,6 @@ public class Ragdoll : MonoBehaviour {
 
     public void ActivateRagdoll()
     {
-        Debug.Log("ragdoll");
         if (_animator == null) return;
 
         _animator.enabled = false;
@@ -77,16 +69,10 @@ public class Ragdoll : MonoBehaviour {
 	public IEnumerable<Collider> Colliders => _ragdollColliders;
 
 	public void Update() {
-		Vector3 newPreviousBodyPosition = bodyCentre.position;
-		newPreviousBodyPosition.y = transform.position.y;
-
-		Vector3 movement = newPreviousBodyPosition - previousBodyPosition;
+		Vector3 movement = bodyCentre.position - transform.position;
 		movement.y = 0;
 
 		transform.position += movement;
 		colliderRoot.position -= movement;
-
-		previousBodyPosition = bodyCentre.position;
-		previousBodyPosition.y = transform.position.y;
 	}
 }
