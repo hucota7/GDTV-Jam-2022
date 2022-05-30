@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Door : Entity, IMoveable, IUseable
 {
@@ -9,7 +10,8 @@ public class Door : Entity, IMoveable, IUseable
 	public Vector3 rotationAxis = Vector3.up; //The axis in local space around which the door rotates
 	public float[] openAngle; //The angle at which the door is fully open
     public float openSpeed = 4f; //Speed at which the door opens (and closes).
-
+	private NavMeshObstacle nav;
+	bool finishedOpening = false;
     public bool requiresKey = false; //Does this door require a key?
 	public GameObject lockVisual;
 
@@ -19,6 +21,7 @@ public class Door : Entity, IMoveable, IUseable
     {
 		base.Start();
 		lockVisual.SetActive(requiresKey);
+		nav = GetComponentInChildren<NavMeshObstacle>();
     }
 
     private void Update()
@@ -30,8 +33,9 @@ public class Door : Entity, IMoveable, IUseable
 	}
 
 	public virtual void OpenDoors()
-    {		
-        for (int i = 0; i < pivots.Length; i++)
+    {
+		if(nav.carving != true) nav.carving = true;
+		for (int i = 0; i < pivots.Length; i++)
         {
 			pivots[i].localRotation = Quaternion.Lerp(
 				pivots[i].localRotation,
@@ -42,6 +46,7 @@ public class Door : Entity, IMoveable, IUseable
 
     public virtual void CloseDoors()
     {
+		if (nav.carving != false) nav.carving = false;
 		for (int i = 0; i < pivots.Length; i++)
         {
 			pivots[i].localRotation = Quaternion.Lerp(
