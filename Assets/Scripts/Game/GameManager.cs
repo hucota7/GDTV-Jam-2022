@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
     {
 		SpawnPlayer();
 		LoadLevel();
-    }
+		InterfaceManager.Instance.SetLevelText(CurrentLevelIndex + 1);
+	}
 
 	public static void GameOver()
     {

@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &475705579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 790847546251666788, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
+  m_PrefabInstance: {fileID: 382674612883678591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &475705582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475705579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6587caa31c99941b4317cc6a02d350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solidColorShader: {fileID: 4800000, guid: 03e7a65c2f3bea046b2ce4eb6e7fed83, type: 3}
+  outlineShader: {fileID: 4800000, guid: 14429a39b0ef519479a0fc25253f8071, type: 3}
 --- !u!114 &963194230 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 963194230, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
@@ -2018,5 +2037,6 @@ PrefabInstance:
       propertyPath: draggingPoint
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 963194229, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 12f93f3998c53ce4abd261dd9edf32f9, type: 3}

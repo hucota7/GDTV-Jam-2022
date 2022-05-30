@@ -30,6 +30,8 @@ Shader "Custom/Post Outline"
 			{
 				v2f o;
 				o.pos = UnityObjectToClipPos(v.vertex);
+				if (_ProjectionParams.x < 0)
+					o.pos.y = 1 - o.pos.y;
 				o.uvs = o.pos.xy / 2 + 0.5;
 				return o;
 			}
@@ -91,6 +93,8 @@ Shader "Custom/Post Outline"
 			{
 				v2f o;
 				o.pos = UnityObjectToClipPos(v.vertex);
+				if (_ProjectionParams.x < 0)
+					o.pos.y = 1 - o.pos.y;
 				o.uvs = o.pos.xy / 2 + 0.5;
 
 				return o;

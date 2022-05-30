@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InterfaceManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InterfaceManager : MonoBehaviour
 	public Canvas worldCanvas;
 
 	public UIScreen gameOverScreen, creditsScreen;
+	public TMP_Text levelText;
 
 	[Header("Prefabs")]
 	public EnergyBarUI energyBarPrefab;
@@ -30,6 +32,11 @@ public class InterfaceManager : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+
+	public void SetLevelText(int levelIndex)
+    {
+		levelText.text = $"Level: {levelIndex}";
+    }
 
 	public void LevelTransitionFade(float speed)
     {
@@ -62,6 +69,7 @@ public class InterfaceManager : MonoBehaviour
 			yield return null;
 		}
 		fadeCG.alpha = 1;
+		SetLevelText(GameManager.Instance.CurrentLevelIndex+1);
 		yield return new WaitForSeconds(1f);
 		while (fadeCG.alpha > 0)
 		{

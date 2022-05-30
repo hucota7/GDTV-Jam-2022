@@ -4,7 +4,8 @@ using UnityEngine;
 using Helpers.Tuple;
 using Helpers.Array;
 
-public class SecurityCamera : Entity, IMoveable, IUseable {
+public class SecurityCamera : Entity, IMoveable, IUseable
+{
 	[SerializeField] bool isTurnedOn = true;
 	[SerializeField] ViewconeTrigger viewConeTrigger;
 	public Transform pivot;
@@ -25,40 +26,49 @@ public class SecurityCamera : Entity, IMoveable, IUseable {
 	//cam standby beeping sound
 	// AudioManager.Play("CamBeepSFX"); 
 
-	private void FixedUpdate() {
-		if (isTurnedOn) {
+	private void FixedUpdate()
+	{
+		if (isTurnedOn)
+		{
 			//would be nice to play that turn on sound when you turn it on
 			//AudioManager.Play("CamTurnOnSFX");
-			if (!viewConeTrigger.detectedPlayer && shouldRotate) {
+			if (!viewConeTrigger.detectedPlayer && shouldRotate)
+			{
 				RotateCamera();
 
 			}
-			if (!viewConeTrigger.gameObject.activeInHierarchy) {
+			if (!viewConeTrigger.gameObject.activeInHierarchy)
+			{
 				viewConeTrigger.gameObject.SetActive(true);
 			}
 
 		}
-		else {
+		else
+		{
 			//would be nice to play that turn off sound when you turn it off
 			//AudioManager.Play("CamTurnOffSFX");
-			if (viewConeTrigger.gameObject.activeInHierarchy) {
+			if (viewConeTrigger.gameObject.activeInHierarchy)
+			{
 				viewConeTrigger.gameObject.SetActive(false);
 			}
 		}
 	}
 
-	void RotateCamera() {
+	void RotateCamera()
+	{
 		yaw = curve.Evaluate(spinTime);
 		pivot.localRotation = Quaternion.AngleAxis(yaw, Vector3.up);
 
 		spinTime += Time.deltaTime;
 	}
 
-	public void StopCameraRotation(float seconds) {
+	public void StopCameraRotation(float seconds)
+	{
 		StartCoroutine(StopRotation(seconds));
 	}
 
-	private IEnumerator StopRotation(float seconds) {
+	private IEnumerator StopRotation(float seconds)
+	{
 		shouldRotate = false;
 
 		yield return new WaitForSeconds(seconds);
@@ -67,14 +77,17 @@ public class SecurityCamera : Entity, IMoveable, IUseable {
 	}
 
 #if UNITY_EDITOR
-	private void OnValidate() {
+	private void OnValidate()
+	{
 		//some of this probably needs to be frozen if isTurnedOn = false 
-		if (rotationSequence.Length == 0) {
+		if (rotationSequence.Length == 0)
+		{
 			curve = new AnimationCurve(new Keyframe(0, 0));
 			return;
 		}
 
-		if (rotationSequence.Length == 1) {
+		if (rotationSequence.Length == 1)
+		{
 			curve = new AnimationCurve(new Keyframe(0, rotationSequence[0].x));
 			return;
 		}
@@ -82,7 +95,8 @@ public class SecurityCamera : Entity, IMoveable, IUseable {
 		foreach (var el in rotationSequence)
 			if (el == null) return;
 
-		for (int i = 0; i < rotationSequence.Length; i++) {
+		for (int i = 0; i < rotationSequence.Length; i++)
+		{
 			Vector3 el = rotationSequence[i];
 			el.y = el.y < 0.01f ? 0.01f : el.y;
 			el.z = el.z < 0 ? 0 : el.z;
@@ -94,30 +108,31 @@ public class SecurityCamera : Entity, IMoveable, IUseable {
 
 		curve.AddKey(t, rotationSequence.At(-1).x);
 
-		for (int i = 0; i < rotationSequence.Length; i++) {
+		for (int i = 0; i < rotationSequence.Length; i++)
+		{
 			(float yaw, float time, float delay) curr = rotationSequence[i].Tuple();
 
 			t += curr.time;
 			curve.AddKey(t, curr.yaw);
 
-			if (curr.delay > 0) {
+			if (curr.delay > 0)
+			{
 				t += curr.delay;
 				curve.AddKey(t, curr.yaw);
 			}
 		}
 
-		for (int i = 0; i < curve.keys.Length; i++) {
+		for (int i = 0; i < curve.keys.Length; i++)
+		{
 			UnityEditor.AnimationUtility.SetKeyLeftTangentMode(curve, i, UnityEditor.AnimationUtility.TangentMode.Linear);
 			UnityEditor.AnimationUtility.SetKeyRightTangentMode(curve, i, UnityEditor.AnimationUtility.TangentMode.Linear);
 		}
 	}
+#endif
+	public void Move(Vector3 direction) { }
 
-	public void Move(Vector3 direction) {
-
-	}
-
-	public void Use() {
+	public void Use()
+	{
 		isTurnedOn = !isTurnedOn;
 	}
-#endif
 }
