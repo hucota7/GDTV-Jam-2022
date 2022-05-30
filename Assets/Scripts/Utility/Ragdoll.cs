@@ -48,7 +48,6 @@ public class Ragdoll : MonoBehaviour {
 
     public void ActivateRagdoll()
     {
-        Debug.Log("ragdoll");
         if (_animator == null) return;
 
         _animator.enabled = false;
