@@ -34,7 +34,7 @@ public class Door : Entity, IMoveable, IUseable
 
 	public virtual void OpenDoors()
     {
-		if(nav.carving != true) nav.carving = true;
+		if(nav && nav.carving != true) nav.carving = true;
 		for (int i = 0; i < pivots.Length; i++)
         {
 			pivots[i].localRotation = Quaternion.Lerp(
@@ -46,7 +46,7 @@ public class Door : Entity, IMoveable, IUseable
 
     public virtual void CloseDoors()
     {
-		if (nav.carving != false) nav.carving = false;
+		if (nav && nav.carving != false) nav.carving = false;
 		for (int i = 0; i < pivots.Length; i++)
         {
 			pivots[i].localRotation = Quaternion.Lerp(
