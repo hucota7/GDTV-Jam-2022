@@ -19,6 +19,7 @@ public class Key : MonoBehaviour
         transform.position = character.keyHolder.position;
         transform.rotation = character.keyHolder.rotation;
         if (TryGetComponent(out Spin spin)) spin.enabled = false;
+        AudioManager.Play("KeySFX"); 
         character.PickupKey(this);
     }
 }

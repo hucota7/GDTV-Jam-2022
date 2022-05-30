@@ -74,7 +74,14 @@ public class Door : Entity, IMoveable, IUseable
 		if (!requiresKey)
 		{
 			isOpen = !isOpen;
-			AudioManager.Play("DoorSqueekSFX");
+            if (isOpen) 
+			{ 
+				AudioManager.Play("DoorOpeningSFX"); 
+			}
+			else 
+			{
+				AudioManager.Play("DoorClosingSFX");
+			}
 		}
 	}
 }

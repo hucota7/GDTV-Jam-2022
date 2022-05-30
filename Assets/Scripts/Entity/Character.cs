@@ -100,6 +100,7 @@ public class Character : Entity, ICanPathfind, IUseable, IDragging
 	public virtual void RemoveKey()
 	{
 		Destroy(keyHolder.GetComponentInChildren<Key>().gameObject);
+		AudioManager.Play("UnlockSFX");
 	}
 
 	public virtual void Move(Vector3 direction)

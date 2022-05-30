@@ -195,10 +195,10 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: d55df27d05bff5b41a374d70bfedcdd2, type: 3}
     - Key: errorUI
       Value: {fileID: 8300000, guid: a05794cd7af5793409c42e2db721fbc8, type: 3}
-    - Key: coinSFX
+    - Key: KeySFX
       Value: {fileID: 8300000, guid: e38bee21e4fd65143a813cd50d544dec, type: 3}
-    - Key: itemCollectSFX
-      Value: {fileID: 8300000, guid: b8e178e7875d5a8459aacc9f3ffc34e4, type: 3}
+    - Key: UnlockSFX
+      Value: {fileID: 8300000, guid: 7d5c33b2405084a478733dcc5e53d2fe, type: 3}
     - Key: NotificationSFX
       Value: {fileID: 8300000, guid: 6569986c437f6ab4c88fd7c253dd4c0c, type: 3}
     - Key: ExplosionSFX
@@ -217,12 +217,14 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: f8a4aa8e3dd9e2e429a6f5ec3fddb149, type: 3}
     - Key: CamTurnOffSFX
       Value: {fileID: 8300000, guid: d55df27d05bff5b41a374d70bfedcdd2, type: 3}
-    - Key: DoorSqueekSFX
-      Value: {fileID: 8300000, guid: c5ce1ecd022de3e448886b87b08103ac, type: 3}
+    - Key: DoorOpeningSFX
+      Value: {fileID: 8300000, guid: d17093526e7c20643b6d586fb3f95e6c, type: 3}
     - Key: PlopSFX
       Value: {fileID: 8300000, guid: fc10d6f21abe575408a19325fe0fcdc2, type: 3}
     - Key: RedAlertSFX
       Value: {fileID: 8300000, guid: 413795be4dedcf644bb9e383d34b26a1, type: 3}
+    - Key: DoorClosingSFX
+      Value: {fileID: 8300000, guid: bc13d51017ebfaf47a5691cb9075a6ad, type: 3}
   musicBank:
     kvps: []
 --- !u!1 &5945269308777062675
