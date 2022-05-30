@@ -129,6 +129,8 @@ MonoBehaviour:
   prompt: {fileID: 0}
   agent: {fileID: 1477399695993106526}
   animator: {fileID: 7318632470439447507}
+  mainCollider: {fileID: 6008887213011566827}
+  possessable: {fileID: 6023485523187958233}
   draggingPoint: {fileID: 4342057649998076438}
   maxSpeed: 3.5
   speedModifier: 1
