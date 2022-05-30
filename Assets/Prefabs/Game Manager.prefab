@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
@@ -87,20 +86,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6587caa31c99941b4317cc6a02d350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  solidColorShader: {fileID: 4800000, guid: 03e7a65c2f3bea046b2ce4eb6e7fed83, type: 3}
-  outlineShader: {fileID: 4800000, guid: 14429a39b0ef519479a0fc25253f8071, type: 3}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5888413966879351166}
   - component: {fileID: 5028755036608761111}
+  - component: {fileID: 9201933736503194278}
   m_Layer: 0
   m_Name: UI Camera
   m_TagString: Untagged
@@ -229,6 +215,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &9201933736503194278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790847546251666788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6587caa31c99941b4317cc6a02d350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solidColorShader: {fileID: 4800000, guid: 03e7a65c2f3bea046b2ce4eb6e7fed83, type: 3}
+  outlineShader: {fileID: 4800000, guid: 14429a39b0ef519479a0fc25253f8071, type: 3}
 --- !u!1 &3741590254899396727
 GameObject:
   m_ObjectHideFlags: 0
