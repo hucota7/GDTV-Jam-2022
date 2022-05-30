@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 2741550509631948446}
   - component: {fileID: 4465389244607902011}
   - component: {fileID: 7993542642025317822}
+  - component: {fileID: 3537058390476511175}
   m_Layer: 6
   m_Name: Cleaner
   m_TagString: Untagged
@@ -185,6 +186,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderRoot: {fileID: 1195004854615410933}
   bodyCentre: {fileID: 3592140450358002029}
+--- !u!136 &3537058390476511175
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2741550509631948445}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1001 &1039996074011361189
 PrefabInstance:
   m_ObjectHideFlags: 0
